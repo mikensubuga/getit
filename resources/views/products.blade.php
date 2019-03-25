@@ -13,7 +13,7 @@
                 Type
             </h5>
             {{-- <p> {{$computer->type->name}}</p> --}}
-            <p> c: {{$computer->types['name']}}</p>
+            <p> c: {{$computer->type['name']}}</p>
 
 
              <a>
