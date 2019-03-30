@@ -15,8 +15,9 @@
     <div class="navbar-inverse">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/">
                     <img src="{{asset('imgt/getit.png')}}" height="53" width="100">
+                <a class="navbar-brand" href="/">
+                    
                 </a>
             </div>
             <form class="navbar-form navbar-left" role="search">
@@ -29,7 +30,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                            role="button" aria-haspopup="true" aria-expanded="false">
-                            Sell & Buy
+                            Sell & Buy<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="">My Sellings</a></li>
@@ -39,7 +40,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                            role="button" aria-haspopup="true" aria-expanded="false">
-                            {{ Auth::user()->username }} <span class="caret"></span>
+                            {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="">Create a gig</a></li>
