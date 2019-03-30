@@ -14,4 +14,7 @@ class JobProfile extends Model
     public function profileCatgeory(){
         return $this->belongsTo('App\ProfileCategory');
     }
+    public function reviews(){
+        return $this->hasMany('App\Review');
+    }
 }
