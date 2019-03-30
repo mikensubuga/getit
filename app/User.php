@@ -27,4 +27,8 @@ class User extends \TCG\Voyager\Models\User
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function jobprofile(){
+        return $this->hasOne('App\JobProfile');
+    }
 }
