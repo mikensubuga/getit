@@ -15,7 +15,7 @@ class JobProfile extends Model
         return $this->belongsTo('App\ProfileCategory','category_id');
     }
     public function reviews(){
-        return $this->hasMany('App\Review');
+        return $this->hasMany('App\Review','jobProfile_id');
     }
     
 }

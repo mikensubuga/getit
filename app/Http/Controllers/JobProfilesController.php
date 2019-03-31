@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\JobProfile;
 use App\ProfileCategory;
+use App\Review;
 class JobProfilesController extends Controller
 {
     /**
@@ -32,11 +33,16 @@ class JobProfilesController extends Controller
 
 
     public function profile($id){
-       return $profiles = JobProfile::findorFail($id);
-        return "ID is ".$id;
+      
+        //$rev = Review::find($id);
+        $profile = JobProfile::findorFail($id);
+       $reviews = $profile->reviews()->get();
+       return view('front.profile', compact('profile','reviews'));
     }
 
-
+    public function user($id){
+        return "hello world";
+    }
 
     /**
      * Show the form for creating a new resource.
