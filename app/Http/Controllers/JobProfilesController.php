@@ -18,14 +18,26 @@ class JobProfilesController extends Controller
         $profiles = JobProfile::all();
         return view('front.profiles', compact('profiles','categories'));
     }
+
+
+
     public function profileCategory($id){
         $categories = ProfileCategory::all();
-        // $profiles = JobProfile::all();
         $category = ProfileCategory::findorFail($id);
          $pcat = $category->profiles()->get();
     
          return view('front.profileCategory', compact('pcat','categories'));
     }
+
+
+
+    public function profile($id){
+       return $profiles = JobProfile::findorFail($id);
+        return "ID is ".$id;
+    }
+
+
+
     /**
      * Show the form for creating a new resource.
      *

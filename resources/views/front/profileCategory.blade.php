@@ -12,8 +12,8 @@
                         <img src="{{asset('/storage/' . $profile->profilePhoto)}}">
                     </a>
                     <div class="caption">
-                        <p><a href="">{{ $profile->details }}</a></p>
-                        <p><span>by <a href="">{{ $profile->user->name }}</a></span>
+                        <p><a href="{{route('profile', $profile->id)}}">{{ $profile->details }}</a></p>
+                        <p><span>by <a href="{{route('profile', $profile->id)}}">{{ $profile->user->name }}</a></span>
                             <b class="green pull-right">UGX{{ $profile->price }}</b>
                         </p>
                     </div>
