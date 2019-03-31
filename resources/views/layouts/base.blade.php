@@ -43,10 +43,8 @@
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="">Create a gig</a></li>
-                            <li><a href="">My Gigs</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="">My Profile</a></li>
+                            
+                            <li><a href="{{ route('user', Auth::user()->name) }}">My Profile</a></li>
                             <li role="separator" class="divider"></li>
                             <li>
                                 <a href="{{ route('logout') }}"

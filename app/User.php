@@ -29,6 +29,6 @@ class User extends \TCG\Voyager\Models\User
     ];
 
     public function jobprofile(){
-        return $this->hasOne('App\JobProfile');
+        return $this->hasOne('App\JobProfile','user_id');
     }
 }

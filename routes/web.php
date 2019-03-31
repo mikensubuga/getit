@@ -17,7 +17,8 @@ Route::get('/welcome', function () {
 Route::get('/', 'JobProfilesController@index')->name('profiles');
 Route::get('/profiles/{category}', 'JobProfilesController@profileCategory')->name('profileCategory');
 Route::get('/profile/{id}', 'JobProfilesController@profile')->name('profile');
-Route::get('/user/{id}', 'JobProfilesController@user')->name('user');
+
+Route::get('/user/{name}', 'UserProfileController@user')->name('user');
 
 Route::get('/computers', 'myProductsController@index')->name('computers');
 Route::group(['prefix' => 'admin'], function () {
