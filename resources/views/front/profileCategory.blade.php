@@ -2,6 +2,8 @@
 
 @section('content')
 
+<h1>{{$pcat[0]->profileCategory['name']}}</h1>
+
 <div class="col-md-9">
             @foreach ($pcat as $profile)
             <div class="col-md-4">

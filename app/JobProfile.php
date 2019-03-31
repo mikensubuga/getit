@@ -12,7 +12,7 @@ class JobProfile extends Model
     }
 
     public function profileCategory(){
-        return $this->belongsTo('App\ProfileCategory');
+        return $this->belongsTo('App\ProfileCategory','category_id');
     }
     public function reviews(){
         return $this->hasMany('App\Review');
