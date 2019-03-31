@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="col-md-9">
-            @foreach ($profiles as $profile)
+            @foreach ($pcat as $profile)
             <div class="col-md-4">
                 <div class="thumbnail">
                     <a href="">
@@ -44,7 +44,7 @@
                     <ul class="list-unstyled">
                         
                         @foreach ($categories as $category)
-                    <li><a href="{{route('profileCategory', $category->id)}}">{{$category->name}}</a>
+                        <li><a href="{{route('profileCategory', $category->id)}}">{{$category->name}}</a>
                         </li>
                         @endforeach
                         

@@ -11,10 +11,11 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
-Route::get('/profiles', 'JobProfilesController@index')->name('profiles');
+Route::get('/', 'JobProfilesController@index')->name('profiles');
+Route::get('/profiles/{category}', 'JobProfilesController@profileCategory')->name('profileCategory');
 Route::get('/computers', 'myProductsController@index')->name('computers');
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

@@ -11,10 +11,11 @@ class JobProfile extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function profileCatgeory(){
+    public function profileCategory(){
         return $this->belongsTo('App\ProfileCategory');
     }
     public function reviews(){
         return $this->hasMany('App\Review');
     }
+    
 }

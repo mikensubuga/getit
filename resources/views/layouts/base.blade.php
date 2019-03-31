@@ -15,7 +15,7 @@
     <div class="navbar-inverse">
         <div class="container">
             <div class="navbar-header">
-                    <img src="{{asset('imgt/getit.png')}}" height="53" width="100">
+           <a href="/">         <img src="{{asset('imgt/getit.png')}}" height="53" width="100"></a>
                 <a class="navbar-brand" href="/">
                     
                 </a>
@@ -30,7 +30,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                            role="button" aria-haspopup="true" aria-expanded="false">
-                            Sell & Buy<span class="caret"></span>
+                            Sell & Buy<span class="caret"></span>~
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="">My Sellings</a></li>
