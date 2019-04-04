@@ -87,9 +87,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">
-                            Order Now (${{ $profile->price }})
-                        </button>
+                        
                     @else
                         You need to login to order this gig!
                     @endif
@@ -105,6 +103,38 @@
                     <a href="">
                         <h4 class="text-center">{{ $profile->user->name }}</h4>
                     </a>
+                    @if(Auth::check() && Auth::user()->name != $profile->user->name ) 
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">
+                        Order Now (UGX{{ $profile->price }})
+                    </button>
+                    @else
+
+                    <!-- Trigger the modal with a button -->
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#loginModal">
+                            Order Now (UGX{{ $profile->price }})
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="loginModal" role="dialog">
+                        <div class="modal-dialog">
+                        
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Modal Header</h4>
+                            </div>
+                            <div class="modal-body">
+                            <p>You need to Login to Order!.</p>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                        
+                        </div>
+                    </div>
+                    @endif
                     {{--<hr/>--}}
                     {{--{% if gig.user.profile.about %}--}}
                     {{--<p>{{ gig.user.profile.about }}</p>--}}

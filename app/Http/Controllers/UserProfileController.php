@@ -78,7 +78,17 @@ class UserProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $this->validate($request,[
+            'details' => 'required',
+            'price' => 'required'
+        ]);
+        
+        $profile = JobProfile::where('id', '=', $id)->get()->first();
+	    $profile->details = $request->details;
+        $profile->price = $request->price;
+	    $profile->save();
+	    return back()->with('success', 'Job Profile successfully updated');
     }
 
     /**
