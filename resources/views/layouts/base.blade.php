@@ -34,7 +34,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="">My Sellings</a></li>
-                            <li><a href="">My Orders</a></li>
+                            <li><a href="{{ route('order.show', Auth::user()->id) }}">My Orders</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">

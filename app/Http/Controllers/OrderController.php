@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Order;
 
 
 class OrderController extends Controller
@@ -58,7 +59,13 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+
+        $orders = Order::where('user_id','=',$id)->get();
+      
+        foreach ($orders as $order) {
+            echo $order;
+        }
+       // return "Orders for ".$id;
     }
 
     /**
