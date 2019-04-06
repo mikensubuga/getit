@@ -60,20 +60,23 @@
                                 <div class="modal-content">
                                     <div class="modal-header" style="background-color: #1b6d85; color: white">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Modal Header</h4>
+                                        <h4 class="modal-title">Order Details</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <form method="POST" action="">
+                                        <form method="POST" action="{{ route('order.store') }}">
                                             {{csrf_field()}}
-                                            <input name="gig_id" value="" hidden>
-                                            <input name="to_user_id" value="" hidden>
+                                           
+                                            <input name="delivered" value="0" hidden>
+                                            <input name="profile_id" value="{{ $profile->id }}" hidden>
+                                            <input name="price" value="{{ $profile->price }}" hidden>
+
                                             <div class="form-group">
-                                                <label for="email">Price:</label>
-                                                <input type="number" required name="price" min="5" max="5000" class="form-control">
+                                                <label for="Price">Price:</label>
+                                                <input type="number" required name="price" class="form-control" value="{{ $profile->price }}" disabled>
                                             </div>
                                             <div class="form-group">
-                                                <label for="email">Total days:</label>
-                                                <input type="number" required name="days" min="1" max="30" class="form-control">
+                                                <label for="Details">Details:</label>
+                                            <input type="text" class="form-control input-sm" required name="details" rows ="5" class="form-control" value="{{$profile->details}}" disabled>
                                             </div>
                                             <button type="submit" class="btn btn-success btn-block">
                                                 Order Now
