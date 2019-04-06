@@ -18,4 +18,7 @@ class JobProfile extends Model
         return $this->hasMany('App\Review','jobProfile_id');
     }
     
+    public function order(){
+        return $this->hasOne('App\Order','jobProfile_id');
+    }
 }

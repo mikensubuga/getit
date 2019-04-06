@@ -31,4 +31,8 @@ class User extends \TCG\Voyager\Models\User
     public function jobprofile(){
         return $this->hasOne('App\JobProfile','user_id');
     }
+
+    public function orders(){
+        return $this->hasMany('App\Order','user_id');
+    }
 }

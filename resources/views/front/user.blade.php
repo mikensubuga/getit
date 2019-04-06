@@ -6,9 +6,15 @@
 </div>
 
 <div class="row">
-    <div class="jumbotron text-center">
-        <h1><b>{{ $profile->details }}</b></h1>
+    <div class="col-sm-8">
+            <div class="jumbotron text-center">
+                    <h1><b>{{ $profile->details }}</b></h1>
+            </div>
     </div>
+    <div class="col-sm-4">
+            <a href=""> <img src="{{asset('/storage/' . $profile->profilePhoto)}}" height="200" width="350"> </a>
+    </div>
+   
 </div>
 <form method="post" action="{{ route('profile.update', $profile->id) }}">
     {{ csrf_field() }}
