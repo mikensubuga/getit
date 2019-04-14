@@ -24,7 +24,7 @@ Route::put('/user/{id}', 'UserProfileController@update')->name('profile.update')
 Route::resource('order', 'OrderController');
 
 Route::get('/computers', 'myProductsController@index')->name('computers');
-
+Route::resource('reviews', 'ReviewController');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

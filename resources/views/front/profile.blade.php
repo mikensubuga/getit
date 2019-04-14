@@ -25,6 +25,27 @@
                 <div class="panel-heading">
                     <h4>Reviews</h4>
                 </div>
+                @if(Auth::check())
+                <div class="well">
+                    <h4>Leave a Comment:</h4>
+                    {!! Form::open(['route' => 'comments.store', 'method' => 'POST']) !!}
+                    <div class="form-group">
+                   
+                        <input type="hidden" name="post_id" value="{{$post->id}}">
+                    {{Form::textarea('body','',['class' => 'form-control','rows'=>'3'])}}
+                    </div>
+
+                    {{ Form::submit('Submit', ['class'=>'btn btn-primary'])}}
+                    {!! Form::close() !!}
+                    {{-- <form role="form">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form> --}}
+                </div>
+                 @endif
+                <hr>
                 <div class="panel-body">
                     @if($reviews->count() > 0)
                         <ul class="list-group">
