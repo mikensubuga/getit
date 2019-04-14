@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use App\User;
+use App\Review;
+use App\JobProfile;
 class ReviewController extends Controller
 {
     /**
@@ -23,7 +26,7 @@ class ReviewController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -34,7 +37,25 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      
+        $user = Auth::user();
+        $this->validate($request,[
+          'body' => 'required'
+      ]);
+
+      $data = [
+        'jobProfile_id'=>$request->jobProfile_id,
+        'author'=>$user->name,
+        'email'=>$user->email,
+        'body'=>$request->body,
+        'photo'=>$user->avatar,
+        'rating'=>$request->rating
+      ];
+      
+        $profile = JobProfile::find($request->jobProfile_id);
+        $profile->reviews()->create($data);
+    //   $request->session()->flash('comment_message','Your message has been submitted and is waiting moderation');
+     return redirect()->back()->with('success','Comment Submitted');
     }
 
     /**

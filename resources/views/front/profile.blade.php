@@ -27,11 +27,13 @@
                 </div>
                 @if(Auth::check())
                 <div class="well">
-                    <h4>Leave a Comment:</h4>
-                    {!! Form::open(['route' => 'comments.store', 'method' => 'POST']) !!}
+                    <h4>Leave a Review:</h4>
+                    {!! Form::open(['route' => 'reviews.store', 'method' => 'POST']) !!}
                     <div class="form-group">
                    
-                        <input type="hidden" name="post_id" value="{{$post->id}}">
+                        <input type="hidden" name="jobProfile_id" value="{{$profile->id}}">
+                        <input type="hidden" name="rating" value="5">
+
                     {{Form::textarea('body','',['class' => 'form-control','rows'=>'3'])}}
                     </div>
 
@@ -53,11 +55,11 @@
                                 <li class="list-group-item">
                                     <div class="row">
                                         <div class="col-md-2">
-                                            <img src="" class="img-circle center-block"
+                                            <img src="{{asset('/storage/' . $review->photo)}}" class="img-circle center-block"
                                                  height="60" width="60">
                                         </div>
                                         <div class="col-md-10">
-                                            <h5>username</h5>
+                                            <h5>{{$review->author}}</h5>
                                             <p>{{ $review->body }}</p>
                                         </div>
                                     </div>
