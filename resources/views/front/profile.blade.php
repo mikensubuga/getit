@@ -67,13 +67,13 @@
                                             @forelse($review->replies as $reply)
                                             <div id="nested-comment" class="media">
                                                 <a class="pull-left" href="#">
-                                                        <img class="img-circle center-block" width = "64" height= "64" src="{{asset('/storage/' . $review->photo)}}" alt="">
+                                                        <img class="img-circle center-block" width = "64" height= "64" src="{{asset('/storage/' . $reply->photo)}}" alt="">
                                                 </a>
                                                 <div class="media-body">
-                                                    <h4 class="media-heading">Author
-                                                        <small>5 mins ago</small>
+                                                    <h4 class="media-heading">{{$reply->author}}
+                                                        <small>{{$reply->created_at->diffForHumans()}}</small>
                                                     </h4>
-                                                           This the body
+                                                           {{$reply->body}}
                                                 </div>
                                                 
                                             </div>

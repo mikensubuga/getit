@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\User;
+use App\Review;
+use App\JobProfile;
 
 class ReplyController extends Controller
 {
@@ -34,7 +38,23 @@ class ReplyController extends Controller
      */
     public function store(Request $request)
     {
-        return "oswadde";
+        $user = Auth::user();
+        $this->validate($request,[
+          'body' => 'required'
+      ]);
+
+      $data = [
+        'review_id'=>$request->review_id,
+        'author'=>$user->name,
+        'email'=>$user->email,
+        'body'=>$request->body,
+        'photo'=>$user->avatar
+      ];
+      
+        $review = Review::find($request->review_id);
+        $review->replies()->create($data);
+    //   $request->session()->flash('comment_message','Your message has been submitted and is waiting moderation');
+     return redirect()->back()->with('success','Reply Submitted');
     }
 
     /**
