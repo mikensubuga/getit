@@ -9,6 +9,11 @@
 
     <script src="{{asset('jst/app.js')}}"></script>
 
+    <style>
+        .comment-reply{
+            display: none;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">

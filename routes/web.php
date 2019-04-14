@@ -25,6 +25,8 @@ Route::resource('order', 'OrderController');
 
 Route::get('/computers', 'myProductsController@index')->name('computers');
 Route::resource('reviews', 'ReviewController');
+Route::resource('replies', 'ReplyController');
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

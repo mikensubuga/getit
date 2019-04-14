@@ -59,8 +59,47 @@
                                                  height="60" width="60">
                                         </div>
                                         <div class="col-md-10">
-                                            <h5>{{$review->author}}</h5>
+                                            <h4 class="media-heading">{{$review->author}}
+                                                <small>{{$review->created_at->diffForHumans()}}</small>
+                                            </h4>
                                             <p>{{ $review->body }}</p>
+                                            {{-- Reply Section start --}}
+                                            @forelse($review->replies as $reply)
+                                            <div id="nested-comment" class="media">
+                                                <a class="pull-left" href="#">
+                                                        <img class="img-circle center-block" width = "64" height= "64" src="{{asset('/storage/' . $review->photo)}}" alt="">
+                                                </a>
+                                                <div class="media-body">
+                                                    <h4 class="media-heading">Author
+                                                        <small>5 mins ago</small>
+                                                    </h4>
+                                                           This the body
+                                                </div>
+                                                
+                                            </div>
+                                            @empty
+                                            <br> No replies
+                                            @endforelse
+                                            {{-- Reply Section End --}}
+                                            {{-- Reply Form Start Section --}}
+                                            <br>
+                                            <div class="comment-reply-container">
+                                                <button class="toggle-reply btn btn-primary pull-right">Reply</button>
+            
+                                            <div class="comment-reply col-sm-6">
+            
+                                                {!! Form::open(['route' => 'replies.store', 'method' => 'POST']) !!}
+                                                <div class="form-group">
+                                               
+                                                    <input type="hidden" name="review_id" value="{{$review->id}}">
+                                                {{Form::textarea('body','',['class' => 'form-control','rows'=>'2'])}}
+                                                </div>
+                            
+                                                {{ Form::submit('Submit', ['class'=>'btn btn-primary'])}}
+                                                {!! Form::close() !!}
+            
+                                             </div>
+                                        </div>
                                         </div>
                                     </div>
                                 </li>
@@ -172,4 +211,11 @@
         </div>
     </div>
 
+@endsection
+@section('scripts')
+<script type="text/javascript">
+    $(".comment-reply-container .toggle-reply").click(function(){
+        $(this).next().slideToggle("slow");
+    });
+</script>
 @endsection
