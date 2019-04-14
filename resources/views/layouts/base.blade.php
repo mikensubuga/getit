@@ -35,7 +35,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                            role="button" aria-haspopup="true" aria-expanded="false">
-                            Sell & Buy<span class="caret"></span>
+                            Sales & Orders<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="">My Sellings</a></li>
@@ -103,12 +103,13 @@
         </div>
 </div>
 
+
+@yield('scripts')
 <footer id="footer">
     <div class="container">
         <span>Get It &copy; 2019</span>
     </div>
 </footer>
-@yield('scripts')
 </body>
 </html>
 

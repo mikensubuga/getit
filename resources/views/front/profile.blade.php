@@ -25,6 +25,7 @@
                 <div class="panel-heading">
                     <h4>Reviews</h4>
                 </div>
+                {{-- @if(Auth::check() && Auth::user()->orders()) --}}
                 @if(Auth::check())
                 <div class="well">
                     <h4>Leave a Review:</h4>
@@ -154,7 +155,7 @@
                         </div>
                         
                     @else
-                        You need to login to order this gig!
+                        You need to login to order this person!
                     @endif
 
                     <div style="margin-top: 30px">

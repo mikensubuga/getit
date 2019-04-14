@@ -2,17 +2,20 @@
 
 @section('content')
 <div class="well">  
-    <h1>Profile </h1>
+    <h4>My Profile </h4>
 </div>
 
 <div class="row">
     <div class="col-sm-8">
             <div class="jumbotron text-center">
-                    <h1><b>{{ $profile->details }}</b></h1>
+                    <h4><b>{{ $profile->details }}</b></h4>
             </div>
     </div>
     <div class="col-sm-4">
-            <a href=""> <img src="{{asset('/storage/' . $profile->profilePhoto)}}" height="200" width="350"> </a>
+        <div class="panel-heading">
+           <h5> Job Profile Photo</h5>
+        </div>
+            <a> <img src="{{asset('/storage/' . $profile->profilePhoto)}}" height="200" width="345"> </a>
     </div>
    
 </div>

@@ -61,10 +61,7 @@ class OrderController extends Controller
     {
 
         $orders = Order::where('user_id','=',$id)->get();
-      
-        foreach ($orders as $order) {
-            echo $order;
-        }
+        return view('front.myOrder',compact('orders','users'));
        // return "Orders for ".$id;
     }
 
