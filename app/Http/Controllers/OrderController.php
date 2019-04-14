@@ -65,6 +65,10 @@ class OrderController extends Controller
        // return "Orders for ".$id;
     }
 
+    public function showSelling($id)
+    {
+        return "my selling";
+    }
     /**
      * Show the form for editing the specified resource.
      *

@@ -26,6 +26,7 @@ Route::resource('order', 'OrderController');
 Route::get('/computers', 'myProductsController@index')->name('computers');
 Route::resource('reviews', 'ReviewController');
 Route::resource('replies', 'ReplyController');
+Route::get('/selling/{userid}', 'OrderController@showSelling')->name('order.showSelling');
 
 
 Route::group(['prefix' => 'admin'], function () {

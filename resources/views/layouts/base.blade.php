@@ -38,7 +38,7 @@
                             Sales & Orders<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="">My Sellings</a></li>
+                            <li><a href="{{ route('order.showSelling', Auth::user()->id) }}">My Sellings</a></li>
                             <li><a href="{{ route('order.show', Auth::user()->id) }}">My Orders</a></li>
                         </ul>
                     </li>
