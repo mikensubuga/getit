@@ -28,7 +28,9 @@ Route::resource('reviews', 'ReviewController');
 Route::resource('replies', 'ReplyController');
 Route::get('/selling/{userid}', 'OrderController@showSelling')->name('order.showSelling');
 
-
+Route::get('/stars', function () {
+    return view('stars');
+});
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });

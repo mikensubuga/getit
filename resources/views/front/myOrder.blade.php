@@ -5,8 +5,8 @@
 <div class="well">
     <h3> My Orders </h3>
 </div>
-    <table class="table table-bordered">
-        <tr class="info">
+    <table class="table table-hover">
+        <tr class="table-info">
             <th>Job Description</th>
             <th>To be done by</th>
             <th>Price</th>
@@ -15,12 +15,12 @@
         </tr>
     @forelse($orders as $order)
 
-    <tr class="active">
+    <tr class="table-active">
         {{-- <td>{{$order->jobProfile_id}}</td> --}}
         <td>{{$order->orderItems->details}}</td>
         <td>{{$order->orderItems->user->name}}</td>
         <td>{{$order->total}}</td>
-        @if ($order->delivered == 0)
+        @if ($order->delivered == 0)`
             <td> Not Delivered </td>
         @else
             <td> Delivered </td>
