@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\JobProfile;
+use App\ProfileCategory;
 class UserProfileController extends Controller
 {
     /**
@@ -31,9 +32,12 @@ class UserProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($name)
     {
-        //
+        $categories = ProfileCategory::all();
+        $user = User::where('name','=',$name)->get()->first();
+
+        return view('front.createProfile', compact('user','categories'));
     }
 
     /**
@@ -42,9 +46,29 @@ class UserProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        $formInput = $request->except('profilePhoto');
+        //validation
+        $this->validate($request,[
+            'user_id'=>'required',
+            'details' => 'required',
+            'price' => 'required',
+            'category'=>'required',
+            'profilePhoto'=>'required',
+        ]);
+
+        $image = $request->profilePhoto;
+        if($image){
+            $imageName = $image->getClientOriginalName();
+            $img = 
+            $image->move('storage/job-profiles/userprofiles',$imageName);
+            $formInput['profilePhoto']=$imageName;
+        }
+        
+        JobProfile::create($formInput);
+        return back()->with('success', 'Job Profile successfully updated');
+        
     }
 
     /**

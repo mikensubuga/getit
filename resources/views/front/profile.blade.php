@@ -199,10 +199,11 @@
                         <div class="modal-content">
                             <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Modal Header</h4>
                             </div>
                             <div class="modal-body">
-                            <p>You need to Login to Order!.</p>
+                            <p>You need to Login to Order!</p>
+                            <button class="btn btn-primary btn-md" data-toggle="modal" data-target="#elegantModalForm" data-dismiss="modal"> Login </button>
+                            <button class="btn btn-primary btn-md" data-toggle="modal" data-target="#elegantRegisterForm" data-dismiss="modal"> Register </button>
                             </div>
                             <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

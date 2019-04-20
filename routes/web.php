@@ -20,6 +20,9 @@ Route::get('/profile/{id}', 'JobProfilesController@profile')->name('profile');
 
 Route::get('/user/{name}', 'UserProfileController@user')->name('user');
 Route::put('/user/{id}', 'UserProfileController@update')->name('profile.update');
+Route::get('/createjobprofile/{name}', 'UserProfileController@create')->name('profile.create');
+Route::post('/createprofile/{userid}', 'UserProfileController@store')->name('profile.store');
+
 
 Route::resource('order', 'OrderController');
 

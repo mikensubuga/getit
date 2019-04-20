@@ -30,6 +30,7 @@
               <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fa fa-user"></i> {{ Auth::user()->name }} </a>
               <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+                  <a class="dropdown-item waves-effect waves-light" href="{{ route('profile.create', Auth::user()->name) }}">Create Job Profile</a>
                 <a class="dropdown-item waves-effect waves-light" href="{{ route('user', Auth::user()->name) }}">My account</a>
                 <a class="dropdown-item waves-effect waves-light" href="{{ route('logout') }} "    
                 onclick="event.preventDefault();

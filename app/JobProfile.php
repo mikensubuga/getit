@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class JobProfile extends Model
 {
+
+
+    protected $fillable = [
+        'details', 'price', 'user_id','profilePhoto','category_id'
+    ];
+
     public function user(){
         return $this->belongsTo('App\User');
     }
