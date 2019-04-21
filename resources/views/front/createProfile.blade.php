@@ -4,10 +4,18 @@
 
 <div class="row">
     <div class="col-lg-8">
-            <h3 class="h3-responsive">  Create a Job Profile</h3>
-            <p>
-                    <br>  Hello {{$user->name}}, Welcome to Get It, a job management portal, you can now start creating your Profile!
-              </p><br>
+
+        <div class="card">
+            <div class="card-header">
+                    Create a Job Profile
+            </div>
+                <p class="card-text">
+                        <br>  Hello {{$user->name}}, Welcome to Get It, a job management portal, you can now start creating your Profile!
+                  </p><br>
+    
+        </div><br>
+         <div class="card">
+
     <form class="border border-light p-5" method="POST"  action="{{ route('profile.store',$user->id) }}" enctype="multipart/form-data">
         @csrf
     <p class="h4 mb-4 text-center">Create Job Profile</p>
@@ -43,7 +51,7 @@
 
     
 </form>
-
+    </div>
 
     </div>
     

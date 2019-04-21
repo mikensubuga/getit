@@ -2,9 +2,10 @@
 
 @section('content')
 
-<div class="well">
-    <h3> My Orders </h3>
+<div class="card">
+    <div class="card-header"> My Orders </div>
 </div>
+
     <table class="table table-hover">
         <tr class="table-info">
             <th>Job Description</th>

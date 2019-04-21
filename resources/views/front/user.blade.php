@@ -1,10 +1,11 @@
 @extends('layouts.base')
 
 @section('content')
-<div class="well">  
-    <h4>My Profile </h4>
-</div>
 
+    
+
+<div class="card">
+        <div class="card-header">My Profile </div>
 <div class="row">
     <div class="col-sm-8">
             <div class="jumbotron text-center">
@@ -12,13 +13,17 @@
             </div>
     </div>
     <div class="col-sm-4">
-        <div class="panel-heading">
-           <h5> Job Profile Photo</h5>
-        </div>
-            <a> <img src="{{asset('/storage/' . $profile->profilePhoto)}}" height="200" width="345"> </a>
+        
+            <a> <img  class="card-img " src="{{asset('/storage/' . $profile->profilePhoto)}}" height="200" width="345"> </a>
     </div>
    
 </div>
+</div>
+
+
+<div class="col-md-8">
+
+
 <form method="post" action="{{ route('profile.update', $profile->id) }}">
     {{ csrf_field() }}
     {{ method_field('PUT') }}
@@ -31,7 +36,7 @@
             <img src="{{asset('/storage/' . $profile->user->avatar)}}"
             class="img-circle center-block" height="100" width="100">
             @endif
-            <h3 class="text-uppercase"><b>About {{ $profile->user->name }}</b></h3>
+            <h4 class="text-uppercase"><b>About {{ $profile->user->name }}</b></h4>
             <hr/>
 
             @if($profile->details)
@@ -48,7 +53,7 @@
         </div>
     </div>
 </form>
-
+</div>
 @endsection()
 
 {{-- {{$user}}

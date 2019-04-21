@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Order;
+use App\JobProfile;
 
 
 class OrderController extends Controller
@@ -67,7 +68,16 @@ class OrderController extends Controller
 
     public function showSelling($id)
     {
-        return "my selling";
+
+        $user = User::find($id);
+        $jobprofile = $user->jobprofile()->first()->id;
+
+        
+    
+
+      $ordersd = Order::where('jobProfile_id', '=',$jobprofile)->get();
+       
+        return view('front.mySelling',compact('ordersd','users'));
     }
     /**
      * Show the form for editing the specified resource.
