@@ -5,7 +5,7 @@
        <!-- CSRF Token -->
        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-       <title>{{ config('app.name', 'Get It') }}</title>
+       <title>{{ config('app.name') }}</title>
 
     {{-- <link rel="stylesheet" href="{{asset('csst/app.css')}}">
     <link rel="stylesheet" href="{{asset('csst/style.css')}}">
@@ -26,64 +26,11 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 <!-- Material Design Bootstrap -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.7/css/mdb.min.css" rel="stylesheet">
-
 {{-- end --}}
+<link rel="stylesheet" href="{{asset('csst/mystyle.css')}}">
 
-    <style>
-        .comment-reply{
-            display: none;
-        }
-        .fa {
-        margin-right: 5px;
-        }
 
-        .rating .fa {
-            font-size: 22px;
-        }
-
-        .rating-num {
-            margin-top: 0px;
-            font-size: 60px;
-        }
-
-        .progress {
-            margin-bottom: 5px;
-        }
-
-        .progress-bar {
-            text-align: left;
-        }
-
-        .rating-desc .col-md-3 {
-            padding-right: 0px;
-        }
-
-        .sr-only {
-            margin-left: 5px;
-            overflow: visible;
-            clip: auto;
-        }
-        .icon-a{
-            color: orange;
-        }
-        /* Avatar styles */
-        .avatar{
-            position: relative;
-           
-        }
-
-        .category{
-            width: 250px;
-        }
-        /* Search icon */
-       /* profile card */
-       .profilecard{
-           width: 260px;
-           height: 320px;
-       }
-        /*Modal login  */
-        
-    </style>
+  
 </head>
 <body>
 

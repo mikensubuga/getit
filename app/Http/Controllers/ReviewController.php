@@ -40,7 +40,8 @@ class ReviewController extends Controller
       
         $user = Auth::user();
         $this->validate($request,[
-          'body' => 'required'
+          'body' => 'required',
+          'rating'=>'required'
       ]);
 
       $data = [
@@ -55,7 +56,7 @@ class ReviewController extends Controller
         $profile = JobProfile::find($request->jobProfile_id);
         $profile->reviews()->create($data);
     //   $request->session()->flash('comment_message','Your message has been submitted and is waiting moderation');
-     return redirect()->back()->with('success','Comment Submitted');
+     return redirect()->back()->with('success','Review Submitted');
     }
 
     /**
