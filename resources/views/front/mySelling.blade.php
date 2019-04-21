@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="card-header">
-    <h3> My Sellings </h3>
+    <h3> My Jobs </h3>
 </div>
     <table class="table table-hover">
         <tr class="table-info">
@@ -17,7 +17,7 @@
     <tr class="table-active">
        
         {{-- <td>{{$order->orderItems->user->name}}</td> --}}
-        <td>{{$order->user->name}}     <button type="button" class="btn btn-success btn-md"> Message</button>
+    <td>{{$order->user->name}}     <button type="button" class="btn btn-success btn-md" href ="{{route('chat')}}"> Message</button>
         </td>
         <td>{{$order->total}}</td>
         

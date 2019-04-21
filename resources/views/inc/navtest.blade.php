@@ -22,7 +22,7 @@
                     <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                      Orders </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
-                      <a class="dropdown-item waves-effect waves-light" href="{{ route('order.showSelling', Auth::user()->id) }}">My Sellings</a>
+                      <a class="dropdown-item waves-effect waves-light" href="{{ route('order.showSelling', Auth::user()->id) }}">My Jobs</a>
                       <a class="dropdown-item waves-effect waves-light" href="{{ route('order.show', Auth::user()->id) }}"> My Orders</a>
                     </div>
                   </li>

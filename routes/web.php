@@ -31,9 +31,17 @@ Route::resource('reviews', 'ReviewController');
 Route::resource('replies', 'ReplyController');
 Route::get('/selling/{userid}', 'OrderController@showSelling')->name('order.showSelling');
 
+
+//   Chats Routes start
+Route::get('/chat', 'ChatsController@index')->name('chat');
+Route::get('messages', 'ChatsController@fetchMessages');
+Route::post('messages', 'ChatsController@sendMessage');
+
+
 Route::get('/stars', function () {
     return view('stars');
 });
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
