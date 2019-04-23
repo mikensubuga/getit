@@ -173,7 +173,10 @@
                         </div>
                         
                     @else
-                        You need to login to order this person!
+                    <div class="alert alert-info">
+                        You need to login to order for this service!
+                    </div>
+                      
                     @endif
                 
                     <div style="margin-top: 30px" class="text-center">
@@ -197,9 +200,12 @@
                     @else
 
                     <!-- Trigger the modal with a button -->
-                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#loginModal">
+                    <div class="text-center">
+                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#loginModal">
                             Order Now (UGX{{ $profile->price }})
                     </button>
+                    </div>
+                   
                     
                     <!-- Modal -->
                     <div class="modal fade" id="loginModal" role="dialog">
@@ -305,16 +311,16 @@
                         <!-- end row -->
                     </div>
                     <div class="col-xs-12 col-md-6 text-center">
-                        <h1 class="rating-num">5.1</h1>
+                        <h1 class="rating-num">4.6</h1>
                         <div class="rating">
                             <span class="fa fa-star icon-a "></span>
                             <span class="fa fa-star icon-a"></span>
                             <span class="fa fa-star icon-a"></span>
                             <span class="fa fa-star icon-a"></span>
-                            <span class="fa fa-star-half-empty icon-a"></span>
+                            <span class="fa fa-star half-empty icon-a"></span>
                         </div>
                         <div>
-                            <span class="fa fa-user"></span>188 total votes
+                            <span class="fa fa-user"></span>188 votes
                         </div>
                     </div>
                 </div>

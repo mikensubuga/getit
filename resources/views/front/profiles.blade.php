@@ -58,7 +58,7 @@
 
                             <!-- Card image -->
                             <div class="view overlay">
-                            <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" height="200" alt="Card image cap">
+                            <img class="card-img-top" src="{{asset('/storage/' . $profile->profilePhoto)}}" height="200" alt="Card image cap">
                             <a href="{{route('profile', $profile->id)}}">
                                 <div class="mask rgba-white-slight"></div>
                             </a>
@@ -85,10 +85,12 @@
                             <!-- Text -->
                             <div class="media">
                                 <div class="media-body">
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. </p>
+                                        {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. </p> --}}
+                                        <p class="card-text">{{str_limit($profile->details,40)}} </p>
+
                                 </div>
                                 <div class="avatar media-right">
-                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg" class="rounded-circle mr-3" height="50px" width="50px" alt="avatar">
+                                    <img src="{{asset('/storage/' . $profile->user->avatar)}}" class="rounded-circle mr-3" height="50px" width="50px" alt="avatar">
                                 
                                 </div>
                                 

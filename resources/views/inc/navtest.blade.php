@@ -1,9 +1,7 @@
   <!--Navbar-->
   <nav class="mb-1 navbar navbar-expand-lg navbar-dark unique-color-dark ">
-        <a class="navbar-brand" href="/">Get It</a>
-        <a class="navbar-brand" href="/">
-                <img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" height="30" alt="mdb logo">
-              </a>
+        <a class="navbar-brand" href="/"><span class="font-weight-bold blue-text">&nbsp;&nbsp;&nbsp;&nbsp;Get It</span></a>
+       
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="true" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -93,7 +91,7 @@
                Sign in</button>
            </div>
 
-           <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in
+           {{-- <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in
               with:</p>
       
             <div class="row my-3 d-flex justify-content-center">
@@ -103,7 +101,7 @@
               <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fab fa-twitter"></i></button>
               <!--Google +-->
               <button type="button" class="btn btn-white btn-rounded z-depth-1a"><i class="fab fa-google-plus-g"></i></button>
-            </div>
+            </div> --}}
 
      
          
