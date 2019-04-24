@@ -158,6 +158,12 @@
                                                 <label for="Details">Details:</label>
                                             <input type="text" class="form-control input-sm" required name="details" rows ="5" class="form-control" value="{{$profile->details}}" disabled>
                                             </div>
+
+                                            <div class="form-group">
+                                                <label for="Number">Mobile Money Number:</label>
+                                                <input type="number" required name="mmnumber" class="form-control" value="256">
+                                            </div>
+
                                             <button type="submit" class="btn btn-success btn-block">
                                                 Order Now
                                             </button>
