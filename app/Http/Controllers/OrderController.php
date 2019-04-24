@@ -43,9 +43,11 @@ class OrderController extends Controller
 
         $data = [
             'user_id'=>$user->id,
-            'total'=>$request->price,
             'jobProfile_id'=>$request->profile_id,
-            'delivered'=> $request->delivered
+            'delivered'=> $request->delivered,
+            'unit'=> $request->price,
+            'quantity'=>$request->qty,
+            'total'=>$request->qty*$request->price,
           ];
           $user = User::find($user->id);
         $user->orders()->create($data);
@@ -56,13 +58,14 @@ class OrderController extends Controller
         $payload = array( 'username' => 'e4098ee9210a3602', 
         'password' => 'b7ca0ca102e6286b', 
         'action' => 'mmdeposit', 
-        'amount' => $request->price, 
+        'amount' => $request->qty*$request->price, 
         'phone'=> $request->mmnumber, 
         'currency'=>'UGX', 
         'reference'=>12, 
         'reason'=>'Testing MM DEPOSIT' 
         ); 
          
+        
         //open connection 
         $ch = curl_init(); 
          
@@ -92,9 +95,7 @@ class OrderController extends Controller
 
 
 
-
-
-       // return redirect()->back()->with('success','Order Created');
+   // return redirect()->back()->with('success','Order Created');
     }
 
     /**
@@ -106,7 +107,7 @@ class OrderController extends Controller
     public function show($id)
     {
 
-        $orders = Order::where('user_id','=',$id)->get();
+        $orders = Order::where('user_id','=',$id)->latest()->get();
         return view('front.myOrder',compact('orders','users'));
        // return "Orders for ".$id;
     }
@@ -120,7 +121,7 @@ class OrderController extends Controller
         
     
 
-      $ordersd = Order::where('jobProfile_id', '=',$jobprofile)->get();
+      $ordersd = Order::where('jobProfile_id', '=',$jobprofile)->latest()->get();
        
         return view('front.mySelling',compact('ordersd','users'));
     }
@@ -135,39 +136,7 @@ class OrderController extends Controller
         //
     }
 
-    public function mm(){
-
-        $url = 'https://www.easypay.co.ug/api/'; 
-        $payload = array( 'username' => '___YOUR CLIENT ID___', 
-        'password' => '___YOUR CLIENT SECRET___', 
-        'action' => 'mmdeposit', 
-        'amount' => 500, 
-        'phone'=>'25675XXXXXXX', 
-        'currency'=>'UGX', 
-        'reference'=>12, 
-        'reason'=>'Testing MM DEPOSIT' 
-        ); 
-         
-        //open connection 
-        $ch = curl_init(); 
-         
-        //set the url, number of POST vars, POST data 
-        curl_setopt($ch,CURLOPT_URL, $url); 
-        curl_setopt($ch,CURLOPT_POSTFIELDS, json_encode($payload)); 
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0); 
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0); 
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT ,15); 
-        curl_setopt($ch, CURLOPT_TIMEOUT, 400); //timeout in seconds 
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
-        //execute post 
-        $result = curl_exec($ch); 
-         
-        //close connection 
-        curl_close($ch); 
-        print_r(json_decode($result)); 
-
-
-    }
+    
     /**
      * Update the specified resource in storage.
      *

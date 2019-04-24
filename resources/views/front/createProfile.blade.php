@@ -9,9 +9,12 @@
             <div class="card-header">
                     Create a Job Profile
             </div>
+            <div class="card-body">
                 <p class="card-text">
-                        <br>  Hello {{$user->name}}, Welcome to Get It, a job management portal, you can now start creating your Profile!
-                  </p><br>
+                Hello {{$user->name}}, Welcome to Get It, a job management portal, you can now start creating your Profile!
+              </p>
+            </div>
+              
     
         </div><br>
          <div class="card">

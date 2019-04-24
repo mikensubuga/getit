@@ -16,8 +16,8 @@
                 <div class="card-header">
                     About {{$profile->user->name}}
                 </div>
-                <div class="panel-body">
-                    <p>{{ $profile->details }}</p>
+                <div class="card-body">
+                    <p class="card-text">{{ $profile->details }}</p>
                     
                 </div>
             </div><br>
@@ -151,12 +151,18 @@
                                             <input name="price" value="{{ $profile->price }}" hidden>
 
                                             <div class="form-group">
-                                                <label for="Price">Price:</label>
-                                                <input type="number" required name="price" class="form-control" value="{{ $profile->price }}" disabled>
-                                            </div>
-                                            <div class="form-group">
                                                 <label for="Details">Details:</label>
                                             <input type="text" class="form-control input-sm" required name="details" rows ="5" class="form-control" value="{{$profile->details}}" disabled>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="Price">Unit Price:</label>
+                                                <input type="number" required name="price" class="form-control" value="{{ $profile->price }}" disabled>
+                                            </div>
+                                         
+                                            <div class="form-group">
+                                                <label for="Quantity">Quantity:</label>
+                                                <input type="number" required name="qty" class="form-control" >
                                             </div>
 
                                             <div class="form-group">
