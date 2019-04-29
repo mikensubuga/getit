@@ -170,7 +170,7 @@
         <label data-error="wrong" data-success="right" for="email">Phone Number</label>
       </div>
 
-       <div class="input-group mb-4">
+       {{-- <div class="input-group mb-4">
         <div class="input-group-prepend">
             <span class="input-group-text">Upload</span>
         </div>
@@ -178,7 +178,7 @@
             <input type="file" name="profilePhoto" class="custom-file-input" id="fileInput" aria-describedby="fileInput">
             <label class="custom-file-label" for="fileInput">Profile Picture</label>
         </div>
-    </div>
+    </div> --}}
 
        <div class="md-form pb-3">
          <input type="password" id="password" name="password" class="form-control validate" required>
@@ -186,7 +186,7 @@
        </div>
 
        <div class="md-form pb-3">
-        <input type="password" id="password" name="password" class="form-control validate" required>
+        <input type="password" id="password2" name="password2" class="form-control validate" required>
         <label data-error="wrong" data-success="right" for="Form-pass1">Confirm password</label>
       </div>
  
