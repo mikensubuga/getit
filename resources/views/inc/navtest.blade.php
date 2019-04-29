@@ -11,7 +11,7 @@
           <ul class="navbar-nav ml-auto">
         @if(Auth::check())
             <li class="nav-item active">
-              <a class="nav-link waves-effect waves-light" href="#">
+              <a class="nav-link waves-effect waves-light" href="{{ route('contact.show')}}">
                 <i class="fa fa-envelope"></i> Contact
                 
               </a>
@@ -158,15 +158,37 @@
          <label data-error="wrong" data-success="right" for="email">Your email</label>
        </div>
  
+       
+       <div class="md-form mb-5">
+        <input id="name" type="text" name ="name" class="form-control validate" required>
+        <label data-error="wrong" data-success="right" for="email">Address</label>
+      </div>
+
+      
+      <div class="md-form mb-5">
+        <input id="name" type="text" name ="name" class="form-control validate" value="256" required>
+        <label data-error="wrong" data-success="right" for="email">Phone Number</label>
+      </div>
+
+       <div class="input-group mb-4">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Upload</span>
+        </div>
+        <div class="custom-file">
+            <input type="file" name="profilePhoto" class="custom-file-input" id="fileInput" aria-describedby="fileInput">
+            <label class="custom-file-label" for="fileInput">Profile Picture</label>
+        </div>
+    </div>
+
        <div class="md-form pb-3">
          <input type="password" id="password" name="password" class="form-control validate" required>
          <label data-error="wrong" data-success="right" for="Form-pass1">Your password</label>
        </div>
 
        <div class="md-form pb-3">
-          <input type="password" id="password-confirm" name="password_confirmation" class="form-control validate" required>
-          <label data-error="wrong" data-success="right" for="password-confirm">Password Confirmation</label>
-        </div>
+        <input type="password" id="password" name="password" class="form-control validate" required>
+        <label data-error="wrong" data-success="right" for="Form-pass1">Confirm password</label>
+      </div>
  
        <div class="text-center mb-3">
          <button type="submit" class="btn btn-primary btn-block btn-rounded z-depth-1">

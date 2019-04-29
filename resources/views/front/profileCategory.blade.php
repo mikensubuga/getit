@@ -29,7 +29,7 @@
                                     <ul class="list-group">
                                         
                                         @foreach ($categories as $category)
-                                    <li class="list-group-item "><a href="{{route('profileCategory', $category->id)}}">{{$category->name}}    <span class="badge badge-primary badge-pill float-right">{{$category->profiles->count()}}</span>
+                                    <li class="list-group-item "><a href="{{route('profileCategory', $category->id)}}">{{$category->name}}    <span class="badge badge-primary badge-pill float-right">{{$category->profs->count()}}</span>
                                     </a>
                                         </li>
                                         @endforeach
@@ -42,18 +42,26 @@
                         </div>
                 
                         <!-- Side Widget Well -->
-                        <div class="well">
-                            <h4>Side Widget Well</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
-                        </div>
+                   
                 
                                
          </div>
     
     
         <div class="col-lg-9">
-                <h1>{{$pcat[0]->profileCategory['name']}}</h1>
 
+                <div class="card">
+                    <div class="card-header">
+                           {{$categ->name}}
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                        {{$categ->description}}
+                      </p>
+                    </div>
+                      
+            
+                </div><br>
            <div class="row">
                @foreach($pcat as $profile)
                 <div class="col-lg-4 col-md-6 mb-4">
@@ -63,8 +71,8 @@
     
                                 <!-- Card image -->
                                 <div class="view overlay">
-                                <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" height="200" alt="Card image cap">
-                                <a href="{{route('profile', $profile->id)}}">
+                                    <img class="card-img-top" src="{{asset('/storage/' . $profile->profilePhoto)}}" height="200" alt="Card image cap">
+                                    <a href="{{route('profile', $profile->id)}}">
                                     <div class="mask rgba-white-slight"></div>
                                 </a>
                                 </div>
@@ -90,10 +98,10 @@
                                 <!-- Text -->
                                 <div class="media">
                                     <div class="media-body">
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. </p>
+                                            <p class="card-text">{{$profile->shortDesc}} </p>
                                     </div>
                                     <div class="avatar media-right">
-                                        <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg" class="rounded-circle mr-3" height="50px" width="50px" alt="avatar">
+                                        <img src="{{asset('/storage/' . $profile->user->avatar)}}" class="rounded-circle mr-3" height="50px" width="50px" alt="avatar">
                                     
                                     </div>
                                     

@@ -23,8 +23,11 @@
         @csrf
     <p class="h4 mb-4 text-center">Create Job Profile</p>
 
-    <label for="textarea">Profile Description</label>
-    <textarea id="textarea" name ="details" class="form-control mb-4" placeholder="I can do ....."></textarea>
+    <label for="textInput">Short Profile Description(Appears at the front page)</label>
+    <input type="text"  name ="shortDesc" id="textInput" class="form-control mb-4">
+
+    <label for="textarea">Long Profile Description</label>
+    <textarea id="textarea" name ="longDesc" class="form-control mb-4" placeholder="I can do ....."></textarea>
 
     <div class="input-group mb-4">
         <div class="input-group-prepend">
@@ -36,15 +39,19 @@
         </div>
     </div>
 
-    <label for="select">Category</label>
-    <select class="browser-default custom-select mb-4" name="category" id="select">
-        <option value="" disabled="" selected="">Choose your option</option>
-        @foreach($categories as $category)
-    <option value="{{$category->id}}">{{$category->name}}</option>
-        @endforeach
-       
-    </select>
-
+    
+        
+        <select class="mdb-select md-form" name="categories[]" multiple searchable="Search here">
+            <option value="" disabled="" selected="">Choose your category</option>
+            @foreach($categories as $category)
+        <option value="{{$category->id}}">{{$category->name}}</option>
+            @endforeach
+           <label class="mdb-main-label">Choose a profile category</label>
+           <button class="btn-save btn btn-primary btn-sm">Save</button>
+        </select>
+    
+    
+<br>
     <label for="textInput">Price: (UGX)</label>
     <input type="text"  name ="price" id="textInput" class="form-control mb-4" placeholder="0.00">
 <input type="hidden" name="user_id" id="textInput" class="form-control mb-4" value="{{$user->id}}">
@@ -63,4 +70,12 @@
 </div>
 
    
+@endsection
+@section('scripts')
+<script type="text/javascript">
+
+
+
+
+</script>
 @endsection

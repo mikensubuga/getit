@@ -59,6 +59,7 @@
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.7/js/mdb.min.js"></script>
 {{-- end --}}
+
 @yield('scripts')
 <footer id="footer">
     <div class="container">

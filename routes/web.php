@@ -23,6 +23,10 @@ Route::put('/user/{id}', 'UserProfileController@update')->name('profile.update')
 Route::get('/createjobprofile/{name}', 'UserProfileController@create')->name('profile.create');
 Route::post('/createprofile/{userid}', 'UserProfileController@store')->name('profile.store');
 
+Route::get('/contact', 'ContactController@index')->name('contact.show');
+Route::post('/contacted', 'ContactController@store')->name('contact.store');
+
+
 
 Route::resource('order', 'OrderController');
 
@@ -30,6 +34,7 @@ Route::get('/computers', 'myProductsController@index')->name('computers');
 Route::resource('reviews', 'ReviewController');
 Route::resource('replies', 'ReplyController');
 Route::get('/selling/{userid}', 'OrderController@showSelling')->name('order.showSelling');
+
 
 
 //   Chats Routes start
@@ -49,3 +54,6 @@ Route::group(['prefix' => 'admin'], function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/test', 'TestController@insert')->name('insert');

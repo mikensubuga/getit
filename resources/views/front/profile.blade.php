@@ -17,7 +17,7 @@
                     About {{$profile->user->name}}
                 </div>
                 <div class="card-body">
-                    <p class="card-text">{{ $profile->details }}</p>
+                    <p class="card-text">{!! $profile->longDesc !!}</p>
                     
                 </div>
             </div><br>
@@ -152,7 +152,7 @@
 
                                             <div class="form-group">
                                                 <label for="Details">Details:</label>
-                                            <input type="text" class="form-control input-sm" required name="details" rows ="5" class="form-control" value="{{$profile->details}}" disabled>
+                                            <input type="text" class="form-control input-sm" required name="details" rows ="5" class="form-control" value="{{$profile->shortDesc}}" disabled>
                                             </div>
 
                                             <div class="form-group">

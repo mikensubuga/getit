@@ -48,27 +48,51 @@ class UserProfileController extends Controller
      */
     public function store(Request $request, $id)
     {
-        $formInput = $request->except('profilePhoto');
+        
+        //$formInput = $request->except('profilePhoto','category');
+        $profile = new JobProfile();
+
         //validation
         $this->validate($request,[
             'user_id'=>'required',
-            'details' => 'required',
+            'shortDesc' => 'required',
+            'longDesc' => 'required',
             'price' => 'required',
-            'category'=>'required',
+            'categories'=>'required',
             'profilePhoto'=>'required',
         ]);
 
         $image = $request->profilePhoto;
         if($image){
             $imageName = $image->getClientOriginalName();
-            $img = 
+            
             $image->move('storage/job-profiles/userprofiles',$imageName);
-            $formInput['profilePhoto']=$imageName;
+          //  $formInput['profilePhoto']=$imageName;
+            $profile->profilePhoto = $imageName;
         }
+
+      //  JobProfile::create($formInput);
+    
         
-        JobProfile::create($formInput);
-        return back()->with('success', 'Job Profile successfully updated');
-        
+
+
+
+
+        /*new approach*/
+        $profile->shortDesc = $request->shortDesc;
+        $profile->user_id = $request->user_id;
+        $profile->longDesc = $request->longDesc;
+        $profile->price = $request->price;
+      
+        if($profile->save()){
+        foreach(request('categories') as $category){
+            $profile->categories()->attach($category);
+        }
+    }
+        return back()->with('success', 'Job Profile successfully created');
+
+        /*end*/
+
     }
 
     /**

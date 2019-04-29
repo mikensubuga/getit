@@ -29,7 +29,7 @@
                                 <ul class="list-group">
                                     
                                     @foreach ($categories as $category)
-                                <li class="list-group-item list-group-item-action"><a href="{{route('profileCategory', $category->id)}}">{{$category->name}}    <span class="badge badge-primary badge-pill float-right">{{$category->profiles->count()}}</span>
+                                <li class="list-group-item list-group-item-action"><a href="{{route('profileCategory', $category->id)}}">{{$category->name}}    <span class="badge badge-primary badge-pill float-right">{{$category->profs->count()}}</span>
                                 </a>
                                     </li>
                                     @endforeach
@@ -59,6 +59,7 @@
                             <!-- Card image -->
                             <div class="view overlay">
                             <img class="card-img-top" src="{{asset('/storage/' . $profile->profilePhoto)}}" height="200" alt="Card image cap">
+
                             <a href="{{route('profile', $profile->id)}}">
                                 <div class="mask rgba-white-slight"></div>
                             </a>
@@ -86,7 +87,7 @@
                             <div class="media">
                                 <div class="media-body">
                                         {{-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. </p> --}}
-                                        <p class="card-text">{{str_limit($profile->details,40)}} </p>
+                                        <p class="card-text">{{str_limit($profile->shortDesc,40)}} </p>
 
                                 </div>
                                 <div class="avatar media-right">
@@ -102,7 +103,7 @@
                             <div>
                                 <!-- Button -->
                                 <a href="{{route('profile', $profile->id)}}" class="btn btn-primary btn-sm">View Profile</a>
-                                <p class=" text-success float-right">
+                                <p class=" text-success float-right" style="font-size:15px">
                                     <strong>UGX {{ $profile->price }}</strong></p>
                             </div>
                           

@@ -53,7 +53,6 @@ class OrderController extends Controller
         $user->orders()->create($data);
 
 
-
         $url = 'https://www.easypay.co.ug/api/'; 
         $payload = array( 'username' => 'e4098ee9210a3602', 
         'password' => 'b7ca0ca102e6286b', 
@@ -61,7 +60,7 @@ class OrderController extends Controller
         'amount' => $request->qty*$request->price, 
         'phone'=> $request->mmnumber, 
         'currency'=>'UGX', 
-        'reference'=>12, 
+        'reference'=>1839, 
         'reason'=>'Testing MM DEPOSIT' 
         ); 
          
@@ -89,13 +88,7 @@ class OrderController extends Controller
 
 
 
-
-
-
-
-
-
-   // return redirect()->back()->with('success','Order Created');
+    //return redirect()->back()->with('success','Order Created');
     }
 
     /**

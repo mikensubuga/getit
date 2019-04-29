@@ -25,9 +25,10 @@ class JobProfilesController extends Controller
     public function profileCategory($id){
         $categories = ProfileCategory::all();
         $category = ProfileCategory::findorFail($id);
-         $pcat = $category->profiles()->get();
+        $categ = $category;
+         $pcat = $category->profs()->get();
     
-         return view('front.profileCategory', compact('pcat','categories'));
+         return view('front.profileCategory', compact('pcat','categories','categ'));
     }
 
 
