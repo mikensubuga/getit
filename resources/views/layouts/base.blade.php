@@ -68,7 +68,7 @@
       background-color: #555;
     } */
   </style>  
-  <script src="{{ asset('js/app.js') }}" defer></script>
+
 </head>
 <body>
 

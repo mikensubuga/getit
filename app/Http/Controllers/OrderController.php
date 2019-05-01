@@ -118,6 +118,19 @@ class OrderController extends Controller
        
         return view('front.mySelling',compact('ordersd','users'));
     }
+
+    public function showFunds($id) {
+        
+        $user = User::find($id);
+        $jobprofile = $user->jobprofile()->first()->id;
+
+        
+    
+
+      $ordersd = Order::where('jobProfile_id', '=',$jobprofile)->latest()->get();
+       //return $ordersd;
+        return view('front.myFunds',compact('ordersd','users'));
+    }
     /**
      * Show the form for editing the specified resource.
      *

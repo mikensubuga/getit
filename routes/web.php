@@ -34,6 +34,8 @@ Route::get('/computers', 'myProductsController@index')->name('computers');
 Route::resource('reviews', 'ReviewController');
 Route::resource('replies', 'ReplyController');
 Route::get('/selling/{userid}', 'OrderController@showSelling')->name('order.showSelling');
+Route::get('/funds/{userid}', 'OrderController@showFunds')->name('funds.show');
+
 
 
 

@@ -1842,7 +1842,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['messages']
 });
@@ -47427,9 +47426,7 @@ var render = function() {
                           _c("div", { staticClass: "header" }, [
                             _c("strong", { staticClass: "primary-font" }, [
                               _vm._v(_vm._s(message.user.name))
-                            ]),
-                            _vm._v(" "),
-                            _vm._m(0, true)
+                            ])
                           ]),
                           _vm._v(" "),
                           _c("hr", { staticClass: "w-100" }),
@@ -47455,17 +47452,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("small", { staticClass: "pull-right text-muted" }, [
-      _c("i", { staticClass: "far fa-clock" }),
-      _vm._v(" 12 mins ago")
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

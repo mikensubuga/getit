@@ -19,7 +19,6 @@
               <div class="chat-body white w-100 p-3 z-depth-1">
                 <div class="header">
                   <strong class="primary-font">{{message.user.name}}</strong>
-                  <small class="pull-right text-muted"><i class="far fa-clock"></i> 12 mins ago</small>
                 </div>
                 <hr class="w-100">
                 <p class="mb-0">

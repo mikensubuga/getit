@@ -22,6 +22,8 @@
                     <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
                       <a class="dropdown-item waves-effect waves-light" href="{{ route('order.showSelling', Auth::user()->id) }}">My Jobs</a>
                       <a class="dropdown-item waves-effect waves-light" href="{{ route('order.show', Auth::user()->id) }}"> My Orders</a>
+                      <a class="dropdown-item waves-effect waves-light" href="{{ route('funds.show', Auth::user()->id) }}"> My Funds</a>
+
                     </div>
                   </li>
             <li class="nav-item dropdown">
