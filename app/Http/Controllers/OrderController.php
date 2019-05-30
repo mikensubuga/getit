@@ -60,7 +60,7 @@ class OrderController extends Controller
         'amount' => $request->qty*$request->price, 
         'phone'=> $request->mmnumber, 
         'currency'=>'UGX', 
-        'reference'=>1839, 
+        'reference'=>1837, 
         'reason'=>'Testing MM DEPOSIT' 
         ); 
          

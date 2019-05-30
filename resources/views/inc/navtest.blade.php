@@ -162,14 +162,14 @@
  
        
        <div class="md-form mb-5">
-        <input id="name" type="text" name ="name" class="form-control validate" required>
-        <label data-error="wrong" data-success="right" for="email">Address</label>
+        <input id="address" type="text" name ="address" class="form-control validate" required>
+        <label data-error="wrong" data-success="right" for="address">Address</label>
       </div>
 
       
       <div class="md-form mb-5">
-        <input id="name" type="text" name ="name" class="form-control validate" value="256" required>
-        <label data-error="wrong" data-success="right" for="email">Phone Number</label>
+        <input id="telNo" type="text" name ="telNo" class="form-control validate" value="256" required>
+        <label data-error="wrong" data-success="right" for="telNO">Phone Number</label>
       </div>
 
        {{-- <div class="input-group mb-4">
