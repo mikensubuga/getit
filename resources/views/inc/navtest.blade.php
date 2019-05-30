@@ -188,7 +188,7 @@
        </div>
 
        <div class="md-form pb-3">
-        <input type="password" id="password2" name="password2" class="form-control validate" required>
+        <input type="password" id="password-confirm" name="password_confirmation" class="form-control validate" required>
         <label data-error="wrong" data-success="right" for="Form-pass1">Confirm password</label>
       </div>
  
