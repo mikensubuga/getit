@@ -35,6 +35,7 @@ Route::resource('reviews', 'ReviewController');
 Route::resource('replies', 'ReplyController');
 Route::get('/selling/{userid}', 'OrderController@showSelling')->name('order.showSelling');
 Route::get('/funds/{userid}', 'OrderController@showFunds')->name('funds.show');
+Route::post('/withdraw', 'OrderController@withdraw')->name('funds.withdraw');
 
 
 
