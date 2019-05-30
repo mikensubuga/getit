@@ -68,7 +68,9 @@ class UserProfileController extends Controller
             
             $image->move('storage/job-profiles/userprofiles',$imageName);
           //  $formInput['profilePhoto']=$imageName;
-            $profile->profilePhoto = $imageName;
+          $profile->profilePhoto = "job-profiles\\userprofiles\\" .$imageName;
+
+           // $profile->profilePhoto = $imageName;
         }
 
       //  JobProfile::create($formInput);
