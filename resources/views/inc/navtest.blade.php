@@ -9,13 +9,14 @@
             
   
           <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                  <a class="nav-link waves-effect waves-light" href="{{ route('contact.show')}}">
+                    <i class="fa fa-envelope"></i> Contact
+                    
+                  </a>
+                </li>
         @if(Auth::check())
-            <li class="nav-item active">
-              <a class="nav-link waves-effect waves-light" href="{{ route('contact.show')}}">
-                <i class="fa fa-envelope"></i> Contact
-                
-              </a>
-            </li>
+            
             <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                      Orders </a>
