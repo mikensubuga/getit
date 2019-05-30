@@ -49,9 +49,12 @@ class OrderController extends Controller
             'quantity'=>$request->qty,
             'total'=>$request->qty*$request->price,
           ];
-          $user = User::find($user->id);
-        $user->orders()->create($data);
+         
 
+          // Generate a random Reference
+          $reference = mt_rand();
+          //Total price
+          $total = $request->qty*$request->price;
 
         $url = 'https://www.easypay.co.ug/api/'; 
         $payload = array( 'username' => 'e4098ee9210a3602', 
@@ -60,7 +63,7 @@ class OrderController extends Controller
         'amount' => $request->qty*$request->price, 
         'phone'=> $request->mmnumber, 
         'currency'=>'UGX', 
-        'reference'=>1837, 
+        'reference'=>$reference, 
         'reason'=>'Testing MM DEPOSIT' 
         ); 
          
@@ -73,22 +76,30 @@ class OrderController extends Controller
         curl_setopt($ch,CURLOPT_POSTFIELDS, json_encode($payload)); 
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0); 
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0); 
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT ,15); 
-        curl_setopt($ch, CURLOPT_TIMEOUT, 30); //timeout in seconds 
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT ,30); 
+        curl_setopt($ch, CURLOPT_TIMEOUT, 400); //timeout in seconds 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
         //execute post 
         $result = curl_exec($ch); 
          
+        // if(curl_getinfo($ch, CURLINFO_HTTP_CODE) != 200)
+        //     echo "something went wrong";
         //close connection 
         curl_close($ch); 
-        print_r(json_decode($result)); 
+
+        $decoded_result = json_decode($result, true);
+
+        if($decoded_result['success'] == 0){
+            return redirect()->back()->with('error','Error! User did not approve the mobile money request in time');
+        }
+        else{
+            $user = User::find($user->id);
+            $user->orders()->create($data);
+            return redirect()->back()->with('success','Order has been created and '.$total.' has been received');
+        }
 
 
 
-
-
-
-    //return redirect()->back()->with('success','Order Created');
     }
 
     /**
