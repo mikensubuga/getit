@@ -6,7 +6,7 @@
         @include('voyager::dimmers')
 </div>
 <h1>Charts</h1>
-<canvas id="myChart"></canvas>
+<canvas id="myChart"></canvas><hr>
 
 @endsection
 
@@ -17,10 +17,10 @@
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                labels: ['Orders', 'Users', 'Categories', 'Reviews', 'Replies', 'Job Profiles'],
                 datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
+                    label: 'Number of available content',
+                    data: [{{$ordercount}}, {{$usercount}}, {{$categorycount}}, {{$reviewcount}}, {{$replycount}}, {{$profilecount}}],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
