@@ -89,7 +89,7 @@
                         </div>
 
                         <button type="submit" class="btn btn-success btn-block">
-                            Order Now
+                            Withdraw Now
                         </button>
                         <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">
                                 Cancel

@@ -155,9 +155,9 @@ class OrderController extends Controller
     }
 
     public function withdraw(Request $request){
-       
+      // return $request;
          // Generate a random Reference
-         $reference = mt_rand();
+        // $reference = mt_rand();
         
          //get amount from form
          $total = $request->amount;
@@ -168,9 +168,9 @@ class OrderController extends Controller
        'action' => 'mmpayout', 
        'amount' => $request->amount, 
        'phone'=> $request->mmnumber, 
-       'currency'=>'UGX', 
-       'reference'=>$reference, 
-       'reason'=>'Withdraw' 
+       'currency'=>'UGX'
+      // 'reference'=>$reference, 
+      // 'reason'=>'Withdraw' 
        ); 
         
        
