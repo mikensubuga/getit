@@ -6,7 +6,10 @@
         @include('voyager::dimmers')
 </div>
 <h1>Charts</h1>
+<h3> Bar Chart Showing the available Content in the System</h3>
 <canvas id="myChart"></canvas><hr>
+<h3> Line Chart Showing the Orders against Time</h3>
+<canvas id="lineChart"></canvas><hr>
 
 @endsection
 
@@ -50,5 +53,28 @@
                 }
             }
         });
+
+
+        var ct = document.getElementById('lineChart').getContext('2d');
+        var chart = new Chart(ct, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [{
+            label: 'Orders',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [0, 10, 5, 2, 20, 30, 45]
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+
+        
         </script>
 @endsection
