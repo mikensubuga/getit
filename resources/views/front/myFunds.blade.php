@@ -1,3 +1,5 @@
+
+
 @extends('layouts.base')
 
 @section('content')
@@ -11,9 +13,11 @@
             <th>Client was</th>
             <th>Price</th>
             <th> Created at</th>
+            <th> Delivery Status</th>
+            <th> </th>
         </tr>
+        
     @forelse($ordersd as $order)
-        @if($order->delivered==1)
     <tr class="table-active">
        
         {{-- <td>{{$order->orderItems->user->name}}</td> --}}
@@ -23,9 +27,21 @@
         
         <td>{{$order->created_at->diffForHumans()}}</td>
 
+        @if ($order->delivered == 0)
+            <td> Not Delivered </td>
+        @else
+            <td> Delivered </td>
+        @endif
 
-
-
+        <td> 
+            @if($order->delivered == 1)
+            <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
+                Withdraw Funds</button>
+                @else
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal" disabled>
+                        Withdraw Funds</button>
+                @endif
+        </td>
 
 
 
@@ -33,15 +49,15 @@
 
         
     </tr>
-        @endif
+     
     @empty
     You don't have any Sellings
 
     @endforelse
     </table>
     
-        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
-                Withdraw Funds</button>
+    
+        
    
 
 

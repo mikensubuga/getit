@@ -21,7 +21,7 @@
         <td>{{$order->orderItems->details}}</td>
         <td>{{$order->orderItems->user->name}}</td>
         <td>{{$order->total}}</td>
-        @if ($order->delivered == 0)`
+        @if ($order->delivered == 0)
             <td> Not Delivered </td>
         @else
             <td> Delivered </td>
