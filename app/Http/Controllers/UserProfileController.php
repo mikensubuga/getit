@@ -81,10 +81,6 @@ class UserProfileController extends Controller
         //  JobProfile::create($formInput);
 
 
-
-
-
-
         /*new approach*/
         $profile->shortDesc = $request->shortDesc;
         $profile->user_id = $request->user_id;
@@ -140,10 +136,21 @@ class UserProfileController extends Controller
             'price' => 'required'
         ]);
 
+
+
         $profile = JobProfile::where('id', '=', $id)->get()->first();
         $profile->shortDesc = $request->shortDesc;
         $profile->longDesc = $request->longDesc;
         $profile->price = $request->price;
+
+        $image = $request->profilePhoto;
+        if ($image) {
+            $imageName = $image->getClientOriginalName();
+
+            $image->move('storage/job-profiles/userprofiles', $imageName);
+            $profile->profilePhoto = "job-profiles\\userprofiles\\" . $imageName;
+        }
+
         $profile->save();
         return back()->with('success', 'Job Profile successfully updated');
     }

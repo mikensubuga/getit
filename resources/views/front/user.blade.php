@@ -24,7 +24,7 @@
 <div class="col-md-6">
 
 
-<form method="post" action="{{ route('profile.update', $profile->id) }}">
+<form method="post" action="{{ route('profile.update', $profile->id) }}" enctype="multipart/form-data">
     {{ csrf_field() }}
     {{ method_field('PUT') }}
     
@@ -39,7 +39,15 @@
             <h4 class=""><b>About {{ $profile->user->name }}'s Job Profile</b></h4>
             <hr/>
 
-           
+            <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Upload</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" name="profilePhoto" class="custom-file-input" id="fileInput" aria-describedby="fileInput">
+                        <label class="custom-file-label" for="fileInput">Change Job Profile Banner</label>
+                    </div>
+                </div>
             Short Profile Description:    <input class="form-control" name="shortDesc" value="{{ $profile->shortDesc }}"><br>
             Long Profile Description:    <input class="form-control" name="longDesc" value="{{ $profile->longDesc }}"><br>
             Unit Price of Service: <input class="form-control" name="price" value="{{ $profile->price }}">
@@ -52,7 +60,7 @@
 </form>
 </div>
 <div class="col-md-6">
-    <form method="post" action="{{ route('account.update', $user->id) }}">
+    <form method="post" action="{{ route('account.update', $user->id) }}" enctype="multipart/form-data">
         {{ csrf_field() }}
         {{ method_field('PUT') }}
         
