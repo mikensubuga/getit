@@ -25,7 +25,7 @@ class UserProfileController extends Controller
             $profile = $user->jobprofile()->get()->first();
             return view('front.user', compact('user', 'profile'));
         } else {
-            return view('front.user2');
+            return view('front.user2', compact('user'));
         }
 
         //$profile = JobProfile::where('user_id','=',$user->id)->get();

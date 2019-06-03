@@ -10,7 +10,8 @@
 <div class="row">
     <div class="col-sm-12">
             <div class="jumbotron text-center">
-                    <h4><b>Go to My Profile page first to create a new one</b></h4>
+                    <h3>Hello {{$user->name}}, Welcome to Get It Done  </h3>
+                    <h4><b>Go to My Profile page first to create a new Job Profile</b></h4>
             </div>
     </div>
    
