@@ -42,6 +42,10 @@ class UserProfileController extends Controller
         $categories = ProfileCategory::all();
         $user = User::where('name', '=', $name)->get()->first();
 
+        if ($user->jobprofile()->first()) {
+            return redirect()->back()->with('error', 'Your Profile already exists! Go to My Account to Edit');
+        }
+
         return view('front.createProfile', compact('user', 'categories'));
     }
 
@@ -53,7 +57,10 @@ class UserProfileController extends Controller
      */
     public function store(Request $request, $id)
     {
-
+        // $user = User::find($id);
+        // if ($user->jobprofile()->first()) {
+        //     return redirect()->back()->with('error', 'Your Profile already exists! Go to My Account to Edit');
+        // }
         //$formInput = $request->except('profilePhoto','category');
         $profile = new JobProfile();
 
