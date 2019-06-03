@@ -125,7 +125,8 @@ class OrderController extends Controller
             $ordersd = Order::where('jobProfile_id', '=', $jobprofile)->latest()->get();
             return view('front.mySelling', compact('ordersd', 'users'));
         } else {
-            return view('front.mySelling2');
+            //  return view('front.mySelling2');
+            return redirect()->back()->with('error', 'You need to create a Job Profile first to access this page');
         }
     }
 
@@ -139,7 +140,8 @@ class OrderController extends Controller
             //return $ordersd;
             return view('front.myFunds', compact('ordersd', 'users'));
         } else {
-            return view('front.myFunds2');
+            return redirect()->back()->with('error', 'You need to create a Job Profile first to access this page');
+            // return view('front.myFunds2');
         }
     }
     /**
