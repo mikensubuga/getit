@@ -22,6 +22,8 @@ Route::get('/user/{name}', 'UserProfileController@user')->name('user');
 Route::put('/user/{id}', 'UserProfileController@update')->name('profile.update');
 Route::get('/createjobprofile/{name}', 'UserProfileController@create')->name('profile.create');
 Route::post('/createprofile/{userid}', 'UserProfileController@store')->name('profile.store');
+Route::put('/account/{id}', 'UserProfileController@change')->name('account.update');
+
 
 Route::get('/contact', 'ContactController@index')->name('contact.show');
 Route::post('/contacted', 'ContactController@store')->name('contact.store');
@@ -56,7 +58,7 @@ Route::group(['prefix' => 'admin'], function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::get('/test', 'TestController@insert')->name('insert');
+// Route::get('/test', 'TestController@insert')->name('insert');

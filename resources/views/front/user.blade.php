@@ -2,15 +2,13 @@
 
 @section('content')
 
-    
-
 <div class="card">
         <div class="card-header">My Profile </div>
 <div class="row">
     <div class="col-sm-8">
-            <div class="jumbotron text-center">
-                    <h4><b>{{ $profile->details }}</b></h4>
-            </div>
+            
+                    <p>{{ $profile->longDesc }}</p>
+            
     </div>
     <div class="col-sm-4">
         
@@ -20,8 +18,10 @@
 </div>
 </div>
 
+<div class="row">
 
-<div class="col-md-8">
+
+<div class="col-md-6">
 
 
 <form method="post" action="{{ route('profile.update', $profile->id) }}">
@@ -30,31 +30,58 @@
     
     <div class="panel panel-default">
         <div class="panel-body">
-            @if($profile->user->avatar == null)
-                <img src="/storage/users/default.png" class="img-circle" height="120" width="120">
+            @if($profile->profilePhoto == null)
+            No Photo! Please Set a Photo
             @else
-            <img src="{{asset('/storage/' . $profile->user->avatar)}}"
-            class="img-circle center-block" height="100" width="100">
+            <img src="{{asset('/storage/' . $profile->profilePhoto)}}"
+            class="" height="200" width="345">
             @endif
-            <h4 class="text-uppercase"><b>About {{ $profile->user->name }}</b></h4>
+            <h4 class=""><b>About {{ $profile->user->name }}'s Job Profile</b></h4>
             <hr/>
 
-            @if($profile->details)
-            Profile Details:    <input class="form-control" name="details" value="{{ $profile->details }}"><br>
-            Price: <input class="form-control" name="price" value="{{ $profile->price }}">
+           
+            Short Profile Description:    <input class="form-control" name="shortDesc" value="{{ $profile->shortDesc }}"><br>
+            Long Profile Description:    <input class="form-control" name="longDesc" value="{{ $profile->longDesc }}"><br>
+            Unit Price of Service: <input class="form-control" name="price" value="{{ $profile->price }}">
 
-            @else
-                Profile Details <input class="form-control" name="details" placeholder="Enter you profile information"><br>
-               Profile Details <input class="form-control" name="price" placeholder="Enter your price">
-
-            @endif
+            
             <br/>
-            <button class="btn btn-success" type="submit">Update</button>
+            <button class="btn btn-success" type="submit">Update your Job Profile</button>
         </div>
     </div>
 </form>
 </div>
-@endsection()
+<div class="col-md-6">
+    <form method="post" action="{{ route('account.update', $user->id) }}">
+        {{ csrf_field() }}
+        {{ method_field('PUT') }}
+        
+        <div class="panel panel-default">
+            <div class="panel-body">
+                @if($profile->user->avatar == null)
+                    <img src="/storage/users/default.png" class="img-circle" height="120" width="120">
+                @else
+                <img src="{{asset('/storage/' . $profile->user->avatar)}}"
+                class="img-circle center-block" height="100" width="100">
+                @endif
+                <h4 class=""><b>About {{ $profile->user->name }}'s User Account</b></h4>
+                <hr/>
+    
+               
+                Name: <input class="form-control" name="name" value="{{ $user->name }}"><br>
+                Email <input class="form-control" name="email" value="{{ $user->email}}" disabled><br>
+                Telephone Number: <input class="form-control" name="telNo" value="{{ $user->telNo }}">
+                Address: <input class="form-control" name="address" value="{{ $user->address }}"><br>
+
+                
+                <br/>
+                <button class="btn btn-success" type="submit">Update User Profile</button>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+@endsection
 
 {{-- {{$user}}
 {{$profile}} --}}

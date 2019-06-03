@@ -133,18 +133,30 @@ class UserProfileController extends Controller
     public function update(Request $request, $id)
     {
 
+
         $this->validate($request, [
-            'details' => 'required',
+            'shortDesc' => 'required',
+            'longDesc' => 'required',
             'price' => 'required'
         ]);
 
         $profile = JobProfile::where('id', '=', $id)->get()->first();
-        $profile->details = $request->details;
+        $profile->shortDesc = $request->shortDesc;
+        $profile->longDesc = $request->longDesc;
         $profile->price = $request->price;
         $profile->save();
         return back()->with('success', 'Job Profile successfully updated');
     }
 
+    public function change(Request $request, $id)
+    {
+
+        $user = User::where('id', '=', $id)->get()->first();
+        $user->telNo = $request->telNo;
+        $user->address = $request->address;
+        $user->save();
+        return back()->with('success', 'User Account Profile successfully updated');
+    }
     /**
      * Remove the specified resource from storage.
      *
