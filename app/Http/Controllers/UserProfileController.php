@@ -158,11 +158,29 @@ class UserProfileController extends Controller
     public function change(Request $request, $id)
     {
 
-        $user = User::where('id', '=', $id)->get()->first();
-        $user->telNo = $request->telNo;
-        $user->address = $request->address;
-        $user->save();
-        return back()->with('success', 'User Account Profile successfully updated');
+        $this->validate($request, [
+            'password' => 'required',
+            'password2' => 'required',
+        ]);
+        if ($request->password != $request->password2) {
+            return redirect()->back()->with('error', 'The passwords provided do not match');
+        } else {
+
+
+            $user = User::where('id', '=', $id)->get()->first();
+            $user->telNo = $request->telNo;
+            $user->address = $request->address;
+            $image = $request->profilePhoto;
+            if ($image) {
+                $imageName = $image->getClientOriginalName();
+
+                $image->move('storage/users/userpictures', $imageName);
+                $user->avatar = "users\\userpictures\\" . $imageName;
+            }
+            $user->password = bcrypt($request->password);
+            $user->save();
+            return back()->with('success', 'User Account Profile successfully updated');
+        }
     }
     /**
      * Remove the specified resource from storage.
