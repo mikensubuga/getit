@@ -40,7 +40,7 @@
             </div>
             <div class="card-body">
                 <p class="card-text">
-                    9 result(s) from '{{request()->input('query')}}'
+                    {{$profiles->count()}} result(s) from '{{request()->input('query')}}'
               </p>
             </div>
               
@@ -52,16 +52,27 @@
                           <tr>
                             <th>Name</th>
                             <th>Short Description</th>
+                            <th></th>
                             <th>Price</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>John</td>
-                            <td>Doe</td>
-                            <td>john@example.com</td>
-                          </tr>
-                          
+                            @forelse ($profiles as $profile)
+                            <tr>
+                                   
+                                    <td>  {{$profile->user->name}}  </td>
+                                    <td><a style="color:white" href="{{route('profile', $profile->id)}}" class="btn btn-primary btn-sm">View Profile</a></td>
+                                    <td>{{str_limit($profile->shortDesc,40)}}</td>
+                                    <td>{{$profile->price}}</td>
+                             </tr>
+                            @empty
+                         <tr>
+                                <td>No Results</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                         </tr>
+                          @endforelse
                         </tbody>
                       </table>
         </div>
