@@ -17,7 +17,7 @@
     <tr class="table-active">
        
         {{-- <td>{{$order->orderItems->user->name}}</td> --}}
-    <td>{{$order->user->name}}     <button type="button" class="btn btn-success btn-md" href ="{{route('chat')}}"> Message</button>
+    <td>{{$order->user->name}}     <a style="color:white" class="btn btn-success btn-md" href ="{{route('chat')}}"> Message</a>
         </td>
         <td>{{$order->total}}</td>
         
