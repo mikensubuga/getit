@@ -4,23 +4,24 @@ namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
+use Illuminate\Http\Request;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class SendMailable extends Mailable
+class ContactMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $name;
+
+    public $email;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($name)
+    public function __construct(Request $request)
     {
-        $this->name = $name;
-
+        $this->email = $request;
     }
 
     /**
@@ -30,6 +31,9 @@ class SendMailable extends Mailable
      */
     public function build()
     {
-        return $this->view('front.contact');
+        return $this->subject($this->email->subject)
+            ->from($this->email->email, $this->email->name)
+            ->to('nsubugamike021@gmail.com')
+            ->view('front.contactmail');
     }
 }

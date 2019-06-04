@@ -64,3 +64,20 @@ Auth::routes();
 
 
 // Route::get('/test', 'TestController@insert')->name('insert');
+Route::any('sendemail', function () {
+    if (Request::get('message') != null)
+        $data = array(
+            'bodyMessage' => Request::get('message')
+        );
+    else
+        $data[] = '';
+    Mail::send('email', $data, function ($message) {
+
+        $message->from('donotreply@demo.com', 'Just Laravel');
+
+        $message->to(Request::get('toEmail'))->subject('Just Laravel demo email using SendGrid');
+    });
+    return Redirect::back()->withErrors([
+        'Your email has been sent successfully'
+    ]);
+});

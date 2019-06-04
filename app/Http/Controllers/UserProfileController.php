@@ -43,7 +43,7 @@ class UserProfileController extends Controller
         $user = User::where('name', '=', $name)->get()->first();
 
         if ($user->jobprofile()->first()) {
-            return redirect()->back()->with('error', 'Your Profile already exists! Go to My Account to Edit');
+            return redirect()->back()->with('success', 'Your Profile already exists! Go to My Account to Edit');
         }
 
         return view('front.createProfile', compact('user', 'categories'));
