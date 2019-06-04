@@ -39,6 +39,8 @@ Route::get('/selling/{userid}', 'OrderController@showSelling')->name('order.show
 Route::get('/funds/{userid}', 'OrderController@showFunds')->name('funds.show');
 Route::post('/withdraw', 'OrderController@withdraw')->name('funds.withdraw');
 
+//search
+Route::get('/search', 'SearchController@search')->name('search');
 
 
 

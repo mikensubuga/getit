@@ -58,8 +58,8 @@ class OrderController extends Controller
 
         $url = 'https://www.easypay.co.ug/api/';
         $payload = array(
-            'username' => 'e4098ee9210a3602',
-            'password' => 'b7ca0ca102e6286b',
+            'username' => 'a6718947eec77fbf',
+            'password' => 'ec268393755d3ab3',
             'action' => 'mmdeposit',
             'amount' => $request->qty * $request->price,
             'phone' => $request->mmnumber,
@@ -166,8 +166,8 @@ class OrderController extends Controller
 
         $url = 'https://www.easypay.co.ug/api/';
         $payload = array(
-            'username' => 'e4098ee9210a3602',
-            'password' => 'b7ca0ca102e6286b',
+            'username' => 'a6718947eec77fbf',
+            'password' => 'ec268393755d3ab3',
             'action' => 'mmpayout',
             'amount' => $request->amount,
             'phone' => $request->mmnumber,
