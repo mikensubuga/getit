@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 04, 2019 at 04:00 PM
+-- Generation Time: Jun 04, 2019 at 05:56 PM
 -- Server version: 5.7.21
 -- PHP Version: 7.2.4
 
@@ -189,7 +189,7 @@ CREATE TABLE IF NOT EXISTS `job_profiles` (
   `order_id` int(11) DEFAULT NULL,
   `longDesc` text COLLATE utf8mb4_unicode_ci,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `job_profiles`
@@ -201,7 +201,9 @@ INSERT INTO `job_profiles` (`id`, `shortDesc`, `profilePhoto`, `created_at`, `up
 (18, 'I will clean, fix and restore your compund to greatness', 'job-profiles\\April2019\\5nJJgJGG0AibsKBLl8c5.jpg', '2019-04-25 08:19:14', '2019-04-25 08:19:14', 4, 7000, NULL, '<p>I will clean your compound at a friendly price and restore all its beauty</p> <p>For 50sq meter, I charge a price of 7000</p>'),
 (19, 'I will your fix broken screen for all types of smart phones', 'job-profiles\\April2019\\e0zha7rqSUdmbvQqpYh7.jpg', '2019-04-25 08:25:17', '2019-04-25 08:25:17', 5, 30000, NULL, '<p>For all screen repairs, i will be your saviour, different screens have different prices so you will buy the screen and I will fix it</p> <p>The price for each is 30000 regardless of the model</p>'),
 (20, 'Hire me for maid work services', 'job-profiles\\May2019\\DWq9gsA3AzlPPpS2eJQn.jpg', '2019-04-25 08:32:00', '2019-05-03 09:13:54', 7, 60000, NULL, '<p> I have an experience of 2 years with doing maid work</p> <p> Good communication skills and ability to handle children and people</p><p> I will do the service for 60000 for a monthly price<p>'),
-(21, 'I will write quality articles and blog posts', 'job-profiles\\April2019\\o9b71p6xEAx1W5QMaU0w.jpg', '2019-04-25 08:36:44', '2019-04-25 08:36:44', 9, 30000, NULL, '<p>There\'s a whole lot to gain from investing in well-articulated  SEO articles, blogs and copywriting contents for your websites, affiliate niche sites, and blogs. </p><p>To sell whatever product it is you might have online; people need to be given that push to go for it and the only way to do that is by going all out to make sure the content on your website is indeed presentable and speaks to their needs as buyers.</p><p> A long form article is 30000');
+(21, 'I will write quality articles and blog posts', 'job-profiles\\April2019\\o9b71p6xEAx1W5QMaU0w.jpg', '2019-04-25 08:36:44', '2019-04-25 08:36:44', 9, 30000, NULL, '<p>There\'s a whole lot to gain from investing in well-articulated  SEO articles, blogs and copywriting contents for your websites, affiliate niche sites, and blogs. </p><p>To sell whatever product it is you might have online; people need to be given that push to go for it and the only way to do that is by going all out to make sure the content on your website is indeed presentable and speaks to their needs as buyers.</p><p> A long form article is 30000'),
+(22, 'This a short test', 'job-profiles\\userprofiles\\earth.JPG', '2019-05-30 12:15:01', '2019-05-30 12:15:01', 14, 4500, NULL, 'This is a Long test'),
+(23, 'This is a', 'job-profiles\\userprofiles\\polos.JPG', '2019-06-01 12:35:54', '2019-06-03 12:26:51', 13, 500, NULL, 'This is a long profile description for the same new user');
 
 -- --------------------------------------------------------
 
@@ -289,7 +291,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `messages`
@@ -299,7 +301,8 @@ INSERT INTO `messages` (`id`, `user_id`, `message`, `created_at`, `updated_at`) 
 (1, 4, 'This is a message', NULL, NULL),
 (2, 3, 'hey there', '2019-04-29 07:02:16', '2019-04-29 07:02:16'),
 (3, 4, 'I would want to make an educational  website for my school, I want it to be responsive, how much time will it take to be delivered?', '2019-04-29 08:25:44', '2019-04-29 08:25:44'),
-(4, 3, 'It will be delivered in a 3 weeks\' time, please endavour to send me the pictures of the school', '2019-04-29 08:27:17', '2019-04-29 08:27:17');
+(4, 3, 'It will be delivered in a 3 weeks\' time, please endavour to send me the pictures of the school', '2019-04-29 08:27:17', '2019-04-29 08:27:17'),
+(5, 3, 'hallo', '2019-06-04 14:54:25', '2019-06-04 14:54:25');
 
 -- --------------------------------------------------------
 
@@ -367,24 +370,29 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `unit` int(11) DEFAULT NULL,
   `quantity` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `orders`
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `total`, `delivered`, `created_at`, `updated_at`, `jobProfile_id`, `unit`, `quantity`) VALUES
-(25, 4, 220000, 0, '2019-04-25 09:07:22', '2019-04-25 09:07:22', 16, NULL, NULL),
+(25, 4, 220000, 1, '2019-04-25 09:07:00', '2019-05-30 11:19:37', 16, NULL, NULL),
 (26, 4, 220000, 0, '2019-04-26 13:20:48', '2019-04-26 13:20:48', 16, NULL, NULL),
 (27, 4, 110000, 0, '2019-04-26 13:33:42', '2019-04-26 13:33:42', 16, NULL, NULL),
 (28, 4, 110000, 0, '2019-04-26 13:34:10', '2019-04-26 13:34:10', 16, NULL, NULL),
 (29, 4, 110000, 0, '2019-04-26 13:34:31', '2019-04-26 13:34:31', 16, NULL, NULL),
 (30, 4, 80000, 0, '2019-04-26 13:34:51', '2019-04-26 13:34:51', 17, NULL, NULL),
 (31, 4, 110000, 0, '2019-04-26 13:43:13', '2019-04-26 13:43:13', 16, NULL, NULL),
-(32, 4, 220000, 1, '2019-04-26 13:51:00', '2019-05-01 09:00:35', 16, NULL, NULL),
 (33, 4, 30000, 0, '2019-04-29 01:55:16', '2019-04-29 01:55:16', 19, NULL, NULL),
 (34, 4, 0, NULL, '2019-04-29 02:26:56', '2019-04-29 02:26:56', NULL, NULL, NULL),
-(35, 4, 220000, 0, '2019-05-02 10:45:52', '2019-05-02 10:45:52', 16, NULL, NULL);
+(35, 4, 220000, 0, '2019-05-02 10:45:52', '2019-05-02 10:45:52', 16, NULL, NULL),
+(36, 4, 80000, 0, '2019-05-30 06:15:57', '2019-05-30 06:15:57', 17, NULL, NULL),
+(37, 4, 80000, 0, '2019-05-30 06:24:50', '2019-05-30 06:24:50', 17, NULL, NULL),
+(38, 4, 80000, 0, '2019-05-30 06:34:39', '2019-05-30 06:34:39', 17, NULL, NULL),
+(39, 4, 80000, 0, '2019-05-30 06:47:19', '2019-05-30 06:47:19', 17, NULL, NULL),
+(40, 4, 80000, 0, '2019-05-30 06:49:30', '2019-05-30 06:49:30', 17, NULL, NULL),
+(43, 16, 1000, 1, '2019-06-04 03:43:00', '2019-06-04 04:03:20', 23, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -614,7 +622,7 @@ CREATE TABLE IF NOT EXISTS `prof_cats` (
   PRIMARY KEY (`id`),
   KEY `prof_cats_job_profile_id_foreign` (`job_profile_id`),
   KEY `prof_cats_profile_category_id_foreign` (`profile_category_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `prof_cats`
@@ -628,7 +636,9 @@ INSERT INTO `prof_cats` (`id`, `job_profile_id`, `profile_category_id`) VALUES
 (15, 19, 17),
 (16, 20, 3),
 (17, 20, 5),
-(18, 21, 4);
+(18, 21, 4),
+(19, 22, 7),
+(20, 23, 24);
 
 -- --------------------------------------------------------
 
@@ -828,24 +838,29 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`),
   KEY `users_role_id_foreign` (`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`, `telNo`, `address`) VALUES
-(1, 1, 'Admin', 'admin@admin.com', 'users\\April2019\\M74o6tHrqLxJq3LOKMvI.jpg', NULL, '$2y$10$vad2W8fm74qnglk8rPSBeeXPJ.ilcxIf5fBIkLj9in.291qPnlzSe', 'feR4abvk2fVnLOCPddV8A3ZPcJVLw1q0PZVBZLsPQb5Rxvb2RUBlAYO9mrLi', '{\"locale\":\"en\"}', '2019-02-26 12:13:07', '2019-04-04 16:41:44', NULL, NULL),
-(3, 2, 'Nsubuga Mike', 'mike@gmail.com', 'users\\April2019\\ZxhWjH90tOqEqjo95QvY.JPG', NULL, '$2y$10$hOIiUHtc6qSUO5PxvndSLOZyQJJJrPmNr3Rt5MflK9Ba0zZLeCgui', 'r6Bc6lg4Lvv4GwQkljH15pKD37aQVQHedNofBCqzOq8gRPeuFM8hZbYn8j46', '{\"locale\":\"en\"}', '2019-03-03 04:51:58', '2019-04-25 06:29:43', NULL, NULL),
-(4, 2, 'Nakiranda Elizabeth', 'liz@gmail.com', 'users\\May2019\\yWUrp0ZANAML5AduQ2X9.JPG', NULL, '$2y$10$Twxcfx9Z0vK.wWFDbqM1Re0TKL6bf5Ft1wJmBR4FP94m7iV6vsjL2', 'HPD03JAbfdbwUZlgSwmnVUjo4qC5LdlVKWYQcNBBy0WujbeCP8cynasxmrNy', NULL, '2019-03-03 04:54:56', '2019-05-03 09:20:51', NULL, NULL),
+(1, 1, 'Admin', 'admin@admin.com', 'users\\April2019\\M74o6tHrqLxJq3LOKMvI.jpg', NULL, '$2y$10$vad2W8fm74qnglk8rPSBeeXPJ.ilcxIf5fBIkLj9in.291qPnlzSe', 'Tq14d2zgZwM5EFr6il9N7ZO4gO3tuH9Zm3XV2y2BY6kOx7rGiHVj9WLWfrFY', '{\"locale\":\"en\"}', '2019-02-26 12:13:07', '2019-04-04 16:41:44', NULL, NULL),
+(3, 2, 'Nsubuga Mike', 'mike@gmail.com', 'users\\April2019\\ZxhWjH90tOqEqjo95QvY.JPG', NULL, '$2y$10$Y1vvPmMks9uUkA6ycLtshexQFM.tOZYj85wG71jO0bCjqKqXYMDSm', 'zq6Hv6wTjTf28Poc778wSBfRFErvgkOZ8zIGkm7nIbcuVCQXl3zVZoe9aFTd', '{\"locale\":\"en\"}', '2019-03-03 04:51:58', '2019-06-04 13:03:50', '256702354937', 'Kawempe'),
+(4, 2, 'Nakiranda Elizabeth', 'liz@gmail.com', 'users\\May2019\\yWUrp0ZANAML5AduQ2X9.JPG', NULL, '$2y$10$Twxcfx9Z0vK.wWFDbqM1Re0TKL6bf5Ft1wJmBR4FP94m7iV6vsjL2', 'W5SrIhPPzmWIwTdqAJXTHbxnT4MWLWT61jbf8rC7tyUXq24fNB0xVHo5eV51', NULL, '2019-03-03 04:54:56', '2019-05-03 09:20:51', NULL, NULL),
 (5, 2, 'Kalema Chris', 'chris@gmail.com', 'users\\April2019\\ITXJELU0DpZLVjBgJK7J.jpeg', NULL, '$2y$10$JoZos3Y6SnPMHU7apmWhU.Q6tS47xC1FYhnBr3NyWYFsB/ZzMEPMa', 'y6FX9cStDumXR1t49VZIzxRWtEYwFggGeryO0oWEnUKnJFqjh925iSk0ytXO', NULL, '2019-03-30 07:05:33', '2019-04-25 08:39:58', NULL, NULL),
-(6, 2, 'Kasemire Ritah Patrah', 'patrah@gmail.com', 'users\\May2019\\7aIBvnIPgNZyH2sD5d5S.jpg', NULL, '$2y$10$dJ4XHqXWKBTUoMbcxlLrUuB0p/Asz.x0MEkAS5emJPKucwMzyj1XO', 'ePTfzyLQA20qpMuBYTMFEionCU1PEqn2j0ooJNotwYft6k0iC5ChNdphT1fE', NULL, '2019-03-30 07:06:06', '2019-05-03 09:18:45', NULL, NULL),
+(6, 2, 'Kasemire Ritah Patrah', 'patrah@gmail.com', 'users\\May2019\\7aIBvnIPgNZyH2sD5d5S.jpg', NULL, '$2y$10$dJ4XHqXWKBTUoMbcxlLrUuB0p/Asz.x0MEkAS5emJPKucwMzyj1XO', 'Z2Li8RVmPujkNYWOK55mwz7cn73u1QckA5cgEgcYCGcnstkx7FOb06Fjn93t', NULL, '2019-03-30 07:06:06', '2019-05-03 09:18:45', NULL, NULL),
 (7, 2, 'Nabangi Phyllis', 'nabangi@gmail.com', 'users/default.png', NULL, '$2y$10$t3IwofSVy6Iij.VgB6kRN.xWbyfmow73iqEX0Qoh2R4p5CIEZZpQu', NULL, NULL, '2019-03-30 15:44:59', '2019-03-30 15:44:59', NULL, NULL),
 (8, 2, 'Kiragga Reagan', 'rigan@gmail.com', 'users/default.png', NULL, '$2y$10$ecwbLS1V4.pr4wVdMHBcAOCywyFMIzj2mn/WkCn6lZf.dqvb/eybq', NULL, NULL, '2019-03-30 15:45:25', '2019-03-30 15:45:25', NULL, NULL),
 (9, 2, 'Aturinda John Prince', 'prince@gmail.com', 'users/default.png', NULL, '$2y$10$60ADc63RskjsPLjILDxYV.tzXfmF4M8X8.Z2QkSYVQ98A.XFBHQqq', NULL, NULL, '2019-03-30 15:45:49', '2019-03-30 15:45:49', NULL, NULL),
 (10, 2, 'Lyagomba Lambert', 'lambert@gmail.com', 'users/default.png', NULL, '$2y$10$/xiLmORhQXLyaiC5h.15geGS03KYdZh/Qk/BYd3tkYWjRY4vAx7LC', 'r3W8AXxK1prUbjfIlEpmNWzMOpoJIjtkoZXt0xn9fx8N0jLcc9vKAv9AKHOp', NULL, '2019-03-30 15:46:18', '2019-03-30 15:46:18', NULL, NULL),
 (11, 2, 'John Doe', 'john@gmail.com', 'users/default.png', NULL, '$2y$10$xWjyofA12kGHWCLupVi2GurbUo3mQIxbglEN6RPFfXD.FyTezZ2xK', 'T4oWjcKdcF1k9xUWxdkaposYTfyw67qsujiNKj91mPTY1MtXAkRYIppPJPWX', NULL, '2019-03-31 07:53:45', '2019-03-31 07:53:45', NULL, NULL),
-(12, 2, 'Kebirungi Genny', 'genny@gmail.com', 'users/default.png', NULL, '$2y$10$vla8wOe8wVSKHUddg3pvheyz.LvambE0.wTrPSI.7KgVaiw9/L.5C', 'QFCTc7ZKPME50XUFBuqnLyMec5xAYqqnpFU4eaFU64qGLNpYVc9ig8qrFYGg', NULL, '2019-04-20 08:07:05', '2019-04-20 08:07:05', NULL, NULL);
+(12, 2, 'Kebirungi Genny', 'genny@gmail.com', 'users/default.png', NULL, '$2y$10$vla8wOe8wVSKHUddg3pvheyz.LvambE0.wTrPSI.7KgVaiw9/L.5C', 'QFCTc7ZKPME50XUFBuqnLyMec5xAYqqnpFU4eaFU64qGLNpYVc9ig8qrFYGg', NULL, '2019-04-20 08:07:05', '2019-04-20 08:07:05', NULL, NULL),
+(13, 2, 'User Mike', 'testing@testing.com', 'users\\userpictures\\kingMike.jpg', NULL, '$2y$10$svoDp6luWRRN9UOe02EdYeLI3r5dHrnmxqDG/af0KVChFYnxukaRy', 'y3zMuDpJQtHqtQr1I8u6LaYP1I9X1fNPbtUBgJZ29GAZCRT6Xuqq8YY28qh2', NULL, '2019-05-30 04:51:00', '2019-06-04 03:57:29', 'User Testing', 'Bwaise'),
+(14, 2, 'Test user', 'userTest@gmail.com', 'users/default.png', NULL, '$2y$10$SZI.A2Jci39kn0/Ixyocae3BxfgYM43R5St337Qd19EtOaw/Mt/SS', 'DCa3NC5eZKGnxaZLWWH42eA6E4kYElKxcRfo2vpBg9r1a8NfxNDQyhogcnwX', NULL, '2019-05-30 05:03:47', '2019-06-03 12:57:16', '25670235489', 'test'),
+(15, 2, 'sample user', 'sample@gmail.com', 'users/default.png', NULL, '$2y$10$ESOH6g1mtM1/B7DQnB1FDejcpeu6B4Yory8MnfMCcsxb.iUEtwXd.', 'xjrQwkmDvvuELPOeTjJ9vWcDg4RK4PtJNZz8BryMJNmBc9WRod3Xw0Kw7pSx', NULL, '2019-06-03 03:28:51', '2019-06-03 03:28:51', '256702354937', 'Gulu'),
+(16, 2, 'sample sample', 's@gmail.com', 'users/default.png', NULL, '$2y$10$vj9e4sYZuY.s5Yhhf/4aRuiqhea8kl7OeHzFu8pF7SbGiZwpcZgJa', 'jvihbaV16cdLuMPRhIU16R7uPHRCuHUNlAqmUOXZJjDIjuu132Hw0BQRRLBh', NULL, '2019-06-03 04:52:04', '2019-06-03 04:52:04', '256', 's'),
+(17, 2, 'My User', 'my@gmail.com', 'users/default.png', NULL, '$2y$10$pwAGT5Ivs30UcY8XfjHhM.X/cUai2n.USXQNKZLVN8HXaeo1qt3Se', NULL, NULL, '2019-06-03 14:35:19', '2019-06-03 14:35:19', '256702354937', 'Mubende');
 
 -- --------------------------------------------------------
 

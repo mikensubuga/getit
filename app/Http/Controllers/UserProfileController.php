@@ -99,7 +99,7 @@ class UserProfileController extends Controller
                 $profile->categories()->attach($category);
             }
         }
-        return back()->with('success', 'Job Profile successfully created');
+        return redirect('/')->with('success', 'Job Profile successfully created');
 
         /*end*/
     }

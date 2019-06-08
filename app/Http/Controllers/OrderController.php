@@ -78,7 +78,7 @@ class OrderController extends Controller
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 400); //timeout in seconds 
+        curl_setopt($ch, CURLOPT_TIMEOUT, 60); //timeout in seconds 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         //execute post 
         $result = curl_exec($ch);
@@ -110,7 +110,7 @@ class OrderController extends Controller
 
         $orders = Order::where('user_id', '=', $id)->latest()->get();
         // dd($orders);
-        return view('front.myOrder', compact('orders', 'users'));
+        return view('front.myOrder', compact('orders'));
         // return "Orders for ".$id;
     }
 
@@ -123,7 +123,7 @@ class OrderController extends Controller
 
             $jobprofile = $user->jobprofile()->first()->id;
             $ordersd = Order::where('jobProfile_id', '=', $jobprofile)->latest()->get();
-            return view('front.mySelling', compact('ordersd', 'users'));
+            return view('front.mySelling', compact('ordersd'));
         } else {
             //  return view('front.mySelling2');
             return redirect()->back()->with('error', 'Hello ' . $user->name . ', You need to create a Job Profile first to access this page');
@@ -155,6 +155,63 @@ class OrderController extends Controller
         //
     }
 
+    // public function withdraw(Request $request)
+    // {
+    //     // return $request;
+    //     // Generate a random Reference
+    //     // $reference = mt_rand();
+
+    //     //get amount from form
+    //     $total = $request->amount;
+
+    //     $url = 'https://www.easypay.co.ug/api/';
+    //     $payload = array(
+    //         'username' => 'a6718947eec77fbf',
+    //         'password' => 'ec268393755d3ab3',
+    //         'action' => 'mmpayout',
+    //         'amount' => $request->amount,
+    //         'phone' => $request->mmnumber,
+    //         'currency' => 'UGX'
+    //         // 'reference'=>$reference, 
+    //         // 'reason'=>'Withdraw' 
+    //     );
+
+
+    //     //open connection 
+    //     $ch = curl_init();
+
+    //     //set the url, number of POST vars, POST data 
+    //     curl_setopt($ch, CURLOPT_URL, $url);
+    //     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
+    //     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    //     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    //     curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
+    //     curl_setopt($ch, CURLOPT_TIMEOUT, 60); //timeout in seconds 
+    //     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    //     //execute post 
+    //     $result = curl_exec($ch);
+
+    //     // if(curl_getinfo($ch, CURLINFO_HTTP_CODE) != 200)
+    //     //     echo "something went wrong";
+    //     //close connection 
+    //     curl_close($ch);
+
+    //     $decoded_result = json_decode($result, true);
+
+    //     if ($decoded_result['success'] == 0) {
+    //         return redirect()->back()->with('error', 'An error Occured! Insufficient balance in the account');
+    //     } else {
+    //         $user = Auth::user();
+    //         $jobprofile = $user->jobprofile()->first()->id;
+    //         $ord = Order::where('jobProfile_id', '=', $jobprofile)->latest()->get();
+    //         foreach ($ord as $or) {
+    //             if ($or->delivered == 1)
+    //                 $or->delete();
+    //             echo $or;
+    //         }
+    //         return redirect()->back()->with('success', 'An amount of ' . $total . ' has been Withdrawn from account');
+    //     }
+    // }
     public function withdraw(Request $request)
     {
         // return $request;
@@ -163,54 +220,14 @@ class OrderController extends Controller
 
         //get amount from form
         $total = $request->amount;
-
-        $url = 'https://www.easypay.co.ug/api/';
-        $payload = array(
-            'username' => 'a6718947eec77fbf',
-            'password' => 'ec268393755d3ab3',
-            'action' => 'mmpayout',
-            'amount' => $request->amount,
-            'phone' => $request->mmnumber,
-            'currency' => 'UGX'
-            // 'reference'=>$reference, 
-            // 'reason'=>'Withdraw' 
-        );
-
-
-        //open connection 
-        $ch = curl_init();
-
-        //set the url, number of POST vars, POST data 
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 400); //timeout in seconds 
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        //execute post 
-        $result = curl_exec($ch);
-
-        // if(curl_getinfo($ch, CURLINFO_HTTP_CODE) != 200)
-        //     echo "something went wrong";
-        //close connection 
-        curl_close($ch);
-
-        $decoded_result = json_decode($result, true);
-
-        if ($decoded_result['success'] == 0) {
-            return redirect()->back()->with('error', 'An error Occured! Insufficient balance in the account');
-        } else {
-            $user = Auth::user();
-            $jobprofile = $user->jobprofile()->first()->id;
-            $ord = Order::where('jobProfile_id', '=', $jobprofile)->latest()->get();
-            foreach ($ord as $or) {
-                if ($or->delivered == 1)
-                    $or->delete();
-                echo $or;
-            }
-            return redirect()->back()->with('success', 'An amount of ' . $total . ' has been Withdrawn from account');
+        $user = Auth::user();
+        $jobprofile = $user->jobprofile()->first()->id;
+        $ord = Order::where('jobProfile_id', '=', $jobprofile)->latest()->get();
+        foreach ($ord as $or) {
+            if ($or->delivered == 1)
+                $or->delete();
         }
+        return redirect()->back()->with('success', 'An amount of ' . $total . ' has been Withdrawn from account');
     }
     /**
      * Update the specified resource in storage.
