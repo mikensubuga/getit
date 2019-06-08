@@ -51,6 +51,8 @@
             Short Profile Description:    <input class="form-control" name="shortDesc" value="{{ $profile->shortDesc }}"><br>
             Long Profile Description:    <input class="form-control" name="longDesc" value="{{ $profile->longDesc }}"><br>
             Unit Price of Service: <input class="form-control" name="price" value="{{ $profile->price }}">
+            My Status: <input class="form-control" name="available" value="{{ $profile->available }}">
+
 
             
             <br/>

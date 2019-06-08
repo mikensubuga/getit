@@ -130,60 +130,66 @@
             <div class="card">
                 <div class="panel-body">
                 @if(Auth::check())
-                    <!-- Modal -->
-                        <div id="myModal" class="modal fade" role="dialog">
-                            <div class="modal-dialog">
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                    <div class="modal-header" style="background-color: #1b6d85; color: white">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Order Details</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                      
-
-                                        
-                                        <form method="POST" action="{{ route('order.store') }}">
-                                            {{csrf_field()}}
-                                           
-                                            <input name="delivered" value="0" hidden>
-                                            <input name="profile_id" value="{{ $profile->id }}" hidden>
-                                            <input name="price" value="{{ $profile->price }}" hidden>
-
-                                            <div class="form-group">
-                                                <label for="Details">Details:</label>
-                                            <input type="text" class="form-control input-sm" required name="details" rows ="5" class="form-control" value="{{$profile->shortDesc}}" disabled>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="Price">Unit Price:</label>
-                                                <input type="number" required name="price" class="form-control" value="{{ $profile->price }}" disabled>
-                                            </div>
-                                         
-                                            <div class="form-group">
-                                                <label for="Quantity">Quantity:</label>
-                                                <input type="number" required name="qty" class="form-control" >
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="Number">Mobile Money Number:</label>
-                                                <input type="number" required name="mmnumber" class="form-control" value="256">
-                                            </div>
-
-                                            <button type="submit" class="btn btn-success btn-block">
-                                                Order Now
-                                            </button>
-                                            <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">
-                                                    Cancel
+                    @if ($profile->available == 1)
+                            <!-- Modal -->
+                            <div id="myModal" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header" style="background-color: #1b6d85; color: white">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Order Details</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                          
+    
+                                            
+                                            <form method="POST" action="{{ route('order.store') }}">
+                                                {{csrf_field()}}
+                                               
+                                                <input name="delivered" value="0" hidden>
+                                                <input name="profile_id" value="{{ $profile->id }}" hidden>
+                                                <input name="price" value="{{ $profile->price }}" hidden>
+    
+                                                <div class="form-group">
+                                                    <label for="Details">Details:</label>
+                                                <input type="text" class="form-control input-sm" required name="details" rows ="5" class="form-control" value="{{$profile->shortDesc}}" disabled>
+                                                </div>
+    
+                                                <div class="form-group">
+                                                    <label for="Price">Unit Price:</label>
+                                                    <input type="number" required name="price" class="form-control" value="{{ $profile->price }}" disabled>
+                                                </div>
+                                             
+                                                <div class="form-group">
+                                                    <label for="Quantity">Quantity:</label>
+                                                    <input type="number" required name="qty" class="form-control" >
+                                                </div>
+    
+                                                <div class="form-group">
+                                                    <label for="Number">Mobile Money Number:</label>
+                                                    <input type="number" required name="mmnumber" class="form-control" value="256">
+                                                </div>
+    
+                                                <button type="submit" class="btn btn-success btn-block">
+                                                    Order Now
                                                 </button>
-                                        </form>
-                                    
+                                                <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">
+                                                        Cancel
+                                                    </button>
+                                            </form>
+                                        
+                                        </div>
+                        
                                     </div>
-                    
                                 </div>
                             </div>
-                        </div>
-                        
+                    @else
+                    <div class="alert alert-info">
+                        This User is currently unavailable. Please try again later 
+                    </div>
+                    @endif
+        
                     @else
                     <div class="alert alert-info">
                         You need to login to order for this service!
